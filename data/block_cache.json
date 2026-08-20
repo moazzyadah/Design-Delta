@@ -1,0 +1,16 @@
+[
+  {
+    "label": "La Jolla / coastal San Diego",
+    "lat": 32.84,
+    "lon": -117.26,
+    "blockPeakF": 81.0,
+    "hoursAboveCeiling": 0.0
+  },
+  {
+    "label": "Borrego Springs (governing station)",
+    "lat": 33.255,
+    "lon": -116.375,
+    "blockPeakF": 115.0,
+    "hoursAboveCeiling": 171.4
+  }
+]

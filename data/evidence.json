@@ -1,0 +1,47 @@
+{
+  "_note": "Verified via live FortyGuard /v1/heatmap exceedance calls on 2026-08-20. Threshold 40.56C = 105F = San Diego County's cooling design temperature ceiling under ANSI/RESNET/ACCA 310-2020 Appendix A. Window: July 2024, all hours.",
+  "county": "San Diego",
+  "state": "CA",
+  "ceiling_F": 105,
+  "governing_station": "Borrego Desert Pk California (M)",
+  "threshold_C": 40.56,
+  "window": { "start_date": "2024-07-01", "end_date": "2024-07-31", "hours": "00:00-23:00" },
+  "sites": [
+    {
+      "label": "Borrego Desert — the station that sets the county number",
+      "role": "governing_station",
+      "bbox": [-116.39, 33.24, -116.36, 33.27],
+      "activity_id": "06315c78-0197-48e6-b367-4216988be26e",
+      "tiles": 896,
+      "hours_above_ceiling": { "min": 124.9234, "max": 196.3885, "mean": 171.4 }
+    },
+    {
+      "label": "La Jolla coast — a home sized by that same number",
+      "role": "subject_property",
+      "bbox": [-117.27, 32.83, -117.25, 32.85],
+      "activity_id": "2f382eb1-69f1-44af-8a44-c55e75d206c6",
+      "tiles": 414,
+      "hours_above_ceiling": { "min": 0.0, "max": 0.0, "mean": 0.0 }
+    }
+  ],
+  "snapshot_calls": [
+    {
+      "_note": "analytic_type=tcm, filter_type=1, 2024-09-05, local time",
+      "label": "Santa Monica 22:00",
+      "activity_id": "8ff74b06-36b8-4d30-8ef7-228db293673c",
+      "tiles": 1811,
+      "avg_F": 71.2, "min_F": 69.0, "max_F": 73.7
+    },
+    {
+      "label": "Burbank 22:00",
+      "activity_id": "9fd07da3-4c02-4f9d-81c7-a1b3d6cf0a80",
+      "tiles": 1804,
+      "avg_F": 95.0, "min_F": 94.3, "max_F": 96.9
+    },
+    {
+      "label": "Burbank 12:00",
+      "activity_id": "b04c3b69-747e-49cf-b6f8-5dea439daf97",
+      "avg_F": 104.5
+    }
+  ]
+}

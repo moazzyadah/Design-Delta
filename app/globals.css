@@ -1,0 +1,196 @@
+/* Design Delta — visual identity inherited from Wsool (site/assets/css/tokens.css).
+   Palette, type scale and contrast ladder are copied verbatim so the two
+   properties read as one house. Latin-only here: the audience is US. */
+
+:root {
+  --ink: #17262d;
+  --ink-deep: #102027;
+  --text: #586970;
+  --muted: #5f7075;
+  --canvas: #f4f7f3;
+  --paper: #fff;
+  --line: #dbe2de;
+  --line-strong: #c3cfc8;
+
+  /* Coral is the single accent. Never for text under 24px — use --coral-ink. */
+  --coral: #e85c3c;
+  --coral-lift: #f7913f; /* dark surfaces only */
+  --coral-deep: #cf4526;
+  --coral-ink: #b03a20;
+  --peach: #ffe7de;
+  --peach-soft: #fff4ef;
+
+  --good: #1d7a52;
+  --good-soft: #e9f5ef;
+  --bad: #c62828;
+  --bad-soft: #fdecec;
+  --bad-ink: #a51f1f;
+  --warn: #8a5a12;
+  --warn-soft: #fdf6e8;
+
+  --on-dark: #fff;
+  --on-dark-soft: rgba(255, 255, 255, 0.72);
+  --on-dark-mute: rgba(255, 255, 255, 0.56);
+  --on-dark-line: rgba(255, 255, 255, 0.14);
+
+  --font: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --fs-display: clamp(40px, 5.6vw, 76px);
+  --fs-h2: clamp(27px, 3.2vw, 44px);
+  --fs-h3: clamp(20px, 2vw, 27px);
+  --fs-lead: clamp(17px, 1.6vw, 21px);
+  --fs-body: 17px;
+  --fs-sm: 15.5px;
+  --fs-xs: 13.5px;
+  --lh-tight: 1.05;
+  --lh-snug: 1.25;
+  --lh-body: 1.75;
+
+  --sp-1: 8px;
+  --sp-2: 16px;
+  --sp-3: 24px;
+  --sp-4: 40px;
+  --sp-5: 64px;
+  --sp-6: 96px;
+  --r: 10px;
+  --r-lg: 16px;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--canvas);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 { color: var(--ink); line-height: var(--lh-snug); margin: 0; font-weight: 600; }
+h1 { font-size: var(--fs-display); line-height: var(--lh-tight); letter-spacing: -0.02em; }
+h2 { font-size: var(--fs-h2); letter-spacing: -0.01em; }
+h3 { font-size: var(--fs-h3); }
+p { margin: 0; }
+a { color: var(--coral-ink); }
+
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 var(--sp-3); }
+.narrow { max-width: 760px; }
+
+/* ── Header ─────────────────────────────────────────── */
+.site-head {
+  border-bottom: 1px solid var(--line);
+  background: var(--paper);
+  position: sticky; top: 0; z-index: 20;
+}
+.site-head .wrap {
+  display: flex; align-items: center; justify-content: space-between;
+  min-height: 64px; gap: var(--sp-2);
+}
+.brand { display: flex; align-items: baseline; gap: 9px; text-decoration: none; }
+.brand b { color: var(--ink); font-size: 18px; font-weight: 600; letter-spacing: -0.01em; }
+.brand .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--coral); display: inline-block; }
+.head-links { display: flex; align-items: center; gap: var(--sp-3); }
+.head-links a { color: var(--text); text-decoration: none; font-size: var(--fs-sm); }
+.head-links a:hover { color: var(--ink); }
+
+/* ── Buttons ────────────────────────────────────────── */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  background: var(--coral-ink); color: #fff; border: 0;
+  padding: 13px 22px; border-radius: var(--r);
+  font: inherit; font-size: var(--fs-sm); font-weight: 500;
+  cursor: pointer; text-decoration: none;
+  transition: background 0.15s ease;
+}
+.btn:hover { background: var(--coral-press, #8f2e19); }
+.btn:disabled { opacity: 0.55; cursor: progress; }
+.btn-ghost {
+  background: transparent; color: var(--ink);
+  border: 1px solid var(--line-strong);
+}
+.btn-ghost:hover { background: var(--paper); }
+
+/* ── Hero ───────────────────────────────────────────── */
+.hero { padding: var(--sp-6) 0 var(--sp-5); }
+.eyebrow {
+  display: inline-block; font-size: var(--fs-xs); letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--coral-ink);
+  background: var(--peach-soft); border: 1px solid var(--peach);
+  padding: 5px 11px; border-radius: 100px; margin-bottom: var(--sp-3);
+}
+.hero p.lead {
+  font-size: var(--fs-lead); margin-top: var(--sp-3); max-width: 60ch;
+}
+
+/* ── Lookup card ────────────────────────────────────── */
+.card {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--r-lg); padding: var(--sp-4);
+}
+.field { display: flex; gap: var(--sp-1); flex-wrap: wrap; }
+.field input {
+  flex: 1 1 300px; min-width: 0;
+  padding: 13px 15px; font: inherit; font-size: var(--fs-body);
+  color: var(--ink); background: var(--paper);
+  border: 1px solid var(--line-strong); border-radius: var(--r);
+}
+.field input:focus { outline: 2px solid var(--coral); outline-offset: 1px; border-color: transparent; }
+.examples { margin-top: var(--sp-2); font-size: var(--fs-sm); color: var(--muted); }
+.examples button {
+  background: none; border: 0; padding: 0 2px; font: inherit; font-size: inherit;
+  color: var(--coral-ink); cursor: pointer; text-decoration: underline;
+}
+
+/* ── Results ────────────────────────────────────────── */
+.numbers {
+  display: grid; gap: var(--sp-2); margin-top: var(--sp-4);
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+}
+.num {
+  border: 1px solid var(--line); border-radius: var(--r);
+  padding: var(--sp-3); background: var(--canvas);
+}
+.num .k { font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+.num .v { font-size: 40px; line-height: 1.1; color: var(--ink); font-weight: 600; margin: 6px 0 4px; font-variant-numeric: tabular-nums; }
+.num .s { font-size: var(--fs-sm); color: var(--text); }
+.num.accent { background: var(--peach-soft); border-color: var(--peach); }
+.num.accent .v { color: var(--coral-ink); }
+
+.verdict { margin-top: var(--sp-3); padding: var(--sp-3); border-radius: var(--r); border: 1px solid; }
+.verdict.material { background: var(--bad-soft); border-color: #f3c9c9; color: var(--bad-ink); }
+.verdict.minor { background: var(--good-soft); border-color: #bfe3d1; color: var(--good); }
+.verdict b { display: block; font-size: var(--fs-h3); color: inherit; margin-bottom: 4px; }
+
+.err { margin-top: var(--sp-3); padding: var(--sp-2) var(--sp-3); border-radius: var(--r);
+       background: var(--warn-soft); border: 1px solid #eddcb4; color: var(--warn); font-size: var(--fs-sm); }
+
+/* ── Dark evidence chapter ──────────────────────────── */
+.chapter { background: var(--ink-deep); color: var(--on-dark-soft); padding: var(--sp-6) 0; margin-top: var(--sp-6); }
+.chapter h2 { color: var(--on-dark); }
+.chapter .lead { color: var(--on-dark-soft); font-size: var(--fs-lead); margin-top: var(--sp-2); max-width: 62ch; }
+.evidence { width: 100%; border-collapse: collapse; margin-top: var(--sp-4); font-size: var(--fs-sm); }
+.evidence th { text-align: left; color: var(--on-dark-mute); font-weight: 400; font-size: var(--fs-xs);
+               text-transform: uppercase; letter-spacing: 0.06em; padding-bottom: var(--sp-1); }
+.evidence td { padding: 14px 0; border-top: 1px solid var(--on-dark-line); color: var(--on-dark-soft); }
+.evidence td.big { font-size: 26px; color: var(--on-dark); font-variant-numeric: tabular-nums; }
+.evidence td.big.hot { color: var(--coral-lift); }
+.chapter figcaption { margin-top: var(--sp-3); font-size: var(--fs-sm); color: var(--on-dark-mute); max-width: 62ch; }
+
+/* ── Sections & footer ──────────────────────────────── */
+.section { padding: var(--sp-6) 0; }
+.section h2 + p { margin-top: var(--sp-2); font-size: var(--fs-lead); max-width: 62ch; }
+.steps { display: grid; gap: var(--sp-3); margin-top: var(--sp-4);
+         grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.step .n { color: var(--coral-ink); font-size: var(--fs-sm); font-weight: 600; }
+.step h3 { margin: 6px 0; }
+
+.site-foot { border-top: 1px solid var(--line); padding: var(--sp-4) 0; font-size: var(--fs-sm); color: var(--muted); }
+.site-foot a { color: var(--text); }
+
+.mono { font-family: var(--mono); font-size: var(--fs-xs); }
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
