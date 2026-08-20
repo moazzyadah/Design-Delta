@@ -10,16 +10,17 @@ export default function Home() {
         <div className="wrap">
           <span className="eyebrow">FortyGuard Hackathon&apos;26</span>
           <h1>
-            One design temperature
+            One weather station
             <br />
-            per county.
+            stands in for your block.
           </h1>
           <p className="lead">
-            Every air conditioner installed under a US permit is sized against a
-            single outdoor design temperature — one number covering an entire
-            county, taken from one weather station that may sit forty miles and
-            three thousand feet away from the house it governs. Type an address
-            and see that number next to what the block actually reaches.
+            Every route to sizing a US home&apos;s air conditioning — Manual J for
+            a permit, RESNET Standard 310 for a rated or tax-credit home, Title
+            24 in California — begins with one outdoor design temperature drawn
+            from one weather station that represents a whole area. That station
+            can sit forty miles and three thousand feet from the house it speaks
+            for. Type an address and see what it misses.
           </p>
           <div style={{ marginTop: 40 }}>
             <LookupForm />
@@ -79,6 +80,18 @@ export default function Home() {
             the county or within forty miles of its centre, the standard takes
             the <strong>highest</strong> of them. In a county that spans coast,
             valley and desert, the desert wins.
+          </p>
+          <p style={{ marginTop: 16 }}>
+            <strong>Where that limit binds.</strong> Standard 310 is a grading
+            standard — by its own text it exists &ldquo;to support consistency in
+            energy rating and labeling&rdquo; and is written for raters, auditors
+            and HVAC contractors. Its ceiling governs HERS-rated homes, ENERGY
+            STAR certification and the 45L tax credit — roughly 420,000 US homes
+            a year. Ordinary permitted work uses Manual J&apos;s own design
+            conditions, and California uses Title 24. Different tables, same
+            structure: one station, assigned to an area, standing in for every
+            block inside it. This tool measures that substitution; it does not
+            claim any one of those tables is misapplied.
           </p>
 
           <div className="steps">
