@@ -30,11 +30,11 @@ export default function Home() {
 
       <section className="chapter" id="evidence">
         <div className="wrap">
-          <h2>San Diego County, one legal number: 105°F</h2>
+          <h2>One county, one number, two different climates</h2>
           <p className="lead">
-            That limit is set by Borrego Desert Park, a station in the
-            Anza-Borrego desert. It also governs the coast, sixty miles west
-            across a mountain range. Here is what each place actually did in the
+            San Diego County&apos;s Standard 310 cap is 105°F, drawn from Borrego
+            Desert Park in the Anza-Borrego desert. The same county reaches the
+            coast, sixty miles west across a mountain range. Here is what each place actually did in the
             same month, modelled at 100-metre resolution.
           </p>
 
