@@ -1,0 +1,466 @@
+[
+  {
+    "county": "Alameda",
+    "state": "CA",
+    "cooling_design_temp_F": 97,
+    "heating_design_temp_F": 27,
+    "station": "Concord California (M)",
+    "notes": ""
+  },
+  {
+    "county": "Alpine",
+    "state": "CA",
+    "cooling_design_temp_F": 96,
+    "heating_design_temp_F": -12,
+    "station": "Tiger Creek Power House California (M)",
+    "notes": ""
+  },
+  {
+    "county": "Amador",
+    "state": "CA",
+    "cooling_design_temp_F": 103,
+    "heating_design_temp_F": 4,
+    "station": "Rocklin California (M)",
+    "notes": ""
+  },
+  {
+    "county": "Butte",
+    "state": "CA",
+    "cooling_design_temp_F": 102,
+    "heating_design_temp_F": 13,
+    "station": "Oroville Ranger Station California (M)",
+    "notes": ""
+  },
+  {
+    "county": "Calaveras",
+    "state": "CA",
+    "cooling_design_temp_F": 102,
+    "heating_design_temp_F": 21,
+    "station": "Camp Pardee California (M)",
+    "notes": ""
+  },
+  {
+    "county": "Colusa",
+    "state": "CA",
+    "cooling_design_temp_F": 101,
+    "heating_design_temp_F": 26,
+    "station": "Orland California (M)",
+    "notes": ""
+  },
+  {
+    "county": "Contra Costa",
+    "state": "CA",
+    "cooling_design_temp_F": 99,
+    "heating_design_temp_F": 27,
+    "station": "NUT TREE AP CA (A)",
+    "notes": ""
+  },
+  {
+    "county": "Del Norte",
+    "state": "CA",
+    "cooling_design_temp_F": 96,
+    "heating_design_temp_F": 27,
+    "station": "Idlewild California (M)",
+    "notes": ""
+  },
+  {
+    "county": "El Dorado",
+    "state": "CA",
+    "cooling_design_temp_F": 103,
+    "heating_design_temp_F": 0,
+    "station": "Rocklin California (M)",
+    "notes": ""
+  },
+  {
+    "county": "Fresno",
+    "state": "CA",
+    "cooling_design_temp_F": 104,
+    "heating_design_temp_F": 16,
+    "station": "Friant Gov Camp California (M)",
+    "notes": ""
+  },
+  {
+    "county": "Glenn",
+    "state": "CA",
+    "cooling_design_temp_F": 102,
+    "heating_design_temp_F": 28,
+    "station": "RED BLUFF MUNICIPAL CA (A)",
+    "notes": ""
+  },
+  {
+    "county": "Humboldt",
+    "state": "CA",
+    "cooling_design_temp_F": 97,
+    "heating_design_temp_F": 24,
+    "station": "Big Bar Ranger Station California (M)",
+    "notes": ""
+  },
+  {
+    "county": "Imperial",
+    "state": "CA",
+    "cooling_design_temp_F": 110,
+    "heating_design_temp_F": 33,
+    "station": "El Centro Airport California (M)",
+    "notes": ""
+  },
+  {
+    "county": "Inyo",
+    "state": "CA",
+    "cooling_design_temp_F": 118,
+    "heating_design_temp_F": 8,
+    "station": "Death Valley California (M)",
+    "notes": ""
+  },
+  {
+    "county": "Kern",
+    "state": "CA",
+    "cooling_design_temp_F": 108,
+    "heating_design_temp_F": 21,
+    "station": "China Lake California (M)",
+    "notes": ""
+  },
+  {
+    "county": "Kings",
+    "state": "CA",
+    "cooling_design_temp_F": 102,
+    "heating_design_temp_F": 28,
+    "station": "Corcoran California (M)",
+    "notes": ""
+  },
+  {
+    "county": "Lake",
+    "state": "CA",
+    "cooling_design_temp_F": 101,
+    "heating_design_temp_F": 26,
+    "station": "Enterprise California (M)",
+    "notes": ""
+  },
+  {
+    "county": "Lassen",
+    "state": "CA",
+    "cooling_design_temp_F": 94,
+    "heating_design_temp_F": -4,
+    "station": "Susanville Airport California (M)",
+    "notes": ""
+  },
+  {
+    "county": "Los Angeles",
+    "state": "CA",
+    "cooling_design_temp_F": 102,
+    "heating_design_temp_F": 14,
+    "station": "Hillcrest Center California (M)",
+    "notes": ""
+  },
+  {
+    "county": "Madera",
+    "state": "CA",
+    "cooling_design_temp_F": 104,
+    "heating_design_temp_F": 16,
+    "station": "Friant Gov Camp California (M)",
+    "notes": ""
+  },
+  {
+    "county": "Marin",
+    "state": "CA",
+    "cooling_design_temp_F": 97,
+    "heating_design_temp_F": 27,
+    "station": "St. Helena California (M)",
+    "notes": ""
+  },
+  {
+    "county": "Mariposa",
+    "state": "CA",
+    "cooling_design_temp_F": 100,
+    "heating_design_temp_F": 19,
+    "station": "CASTLE AFB CA (A)",
+    "notes": ""
+  },
+  {
+    "county": "Mendocino",
+    "state": "CA",
+    "cooling_design_temp_F": 101,
+    "heating_design_temp_F": 26,
+    "station": "Enterprise California (M)",
+    "notes": ""
+  },
+  {
+    "county": "Merced",
+    "state": "CA",
+    "cooling_design_temp_F": 100,
+    "heating_design_temp_F": 29,
+    "station": "Madera California (M)",
+    "notes": ""
+  },
+  {
+    "county": "Modoc",
+    "state": "CA",
+    "cooling_design_temp_F": 95,
+    "heating_design_temp_F": 0,
+    "station": "Alturas Ranger Station California (M)",
+    "notes": ""
+  },
+  {
+    "county": "Mono",
+    "state": "CA",
+    "cooling_design_temp_F": 88,
+    "heating_design_temp_F": -13,
+    "station": "Mono Lake California (M)",
+    "notes": ""
+  },
+  {
+    "county": "Monterey",
+    "state": "CA",
+    "cooling_design_temp_F": 93,
+    "heating_design_temp_F": 24,
+    "station": "Pinnacles NM California (M)",
+    "notes": ""
+  },
+  {
+    "county": "Napa",
+    "state": "CA",
+    "cooling_design_temp_F": 100,
+    "heating_design_temp_F": 26,
+    "station": "Woodland California (M)",
+    "notes": ""
+  },
+  {
+    "county": "Nevada",
+    "state": "CA",
+    "cooling_design_temp_F": 100,
+    "heating_design_temp_F": -10,
+    "station": "Dobbins California (M)",
+    "notes": ""
+  },
+  {
+    "county": "Orange",
+    "state": "CA",
+    "cooling_design_temp_F": 103,
+    "heating_design_temp_F": 29,
+    "station": "Loma Linda California (M)",
+    "notes": ""
+  },
+  {
+    "county": "Placer",
+    "state": "CA",
+    "cooling_design_temp_F": 103,
+    "heating_design_temp_F": 0,
+    "station": "Rocklin California (M)",
+    "notes": ""
+  },
+  {
+    "county": "Plumas",
+    "state": "CA",
+    "cooling_design_temp_F": 97,
+    "heating_design_temp_F": 0,
+    "station": "Quincy California (M)",
+    "notes": ""
+  },
+  {
+    "county": "Riverside",
+    "state": "CA",
+    "cooling_design_temp_F": 112,
+    "heating_design_temp_F": 11,
+    "station": "Palm Desert California (M)",
+    "notes": ""
+  },
+  {
+    "county": "Sacramento",
+    "state": "CA",
+    "cooling_design_temp_F": 103,
+    "heating_design_temp_F": 29,
+    "station": "Rocklin California (M)",
+    "notes": ""
+  },
+  {
+    "county": "San Benito",
+    "state": "CA",
+    "cooling_design_temp_F": 93,
+    "heating_design_temp_F": 24,
+    "station": "Pinnacles NM California (M)",
+    "notes": ""
+  },
+  {
+    "county": "San Bernardino",
+    "state": "CA",
+    "cooling_design_temp_F": 112,
+    "heating_design_temp_F": 7,
+    "station": "Baker California (M)",
+    "notes": ""
+  },
+  {
+    "county": "San Diego",
+    "state": "CA",
+    "cooling_design_temp_F": 105,
+    "heating_design_temp_F": 23,
+    "station": "Borrego Desert Pk California (M)",
+    "notes": ""
+  },
+  {
+    "county": "San Francisco",
+    "state": "CA",
+    "cooling_design_temp_F": 88,
+    "heating_design_temp_F": 32,
+    "station": "Kentfield California (M)",
+    "notes": ""
+  },
+  {
+    "county": "San Joaquin",
+    "state": "CA",
+    "cooling_design_temp_F": 102,
+    "heating_design_temp_F": 28,
+    "station": "Camp Pardee California (M)",
+    "notes": ""
+  },
+  {
+    "county": "San Luis Obispo",
+    "state": "CA",
+    "cooling_design_temp_F": 99,
+    "heating_design_temp_F": 23,
+    "station": "Camp Roberts California (M)",
+    "notes": ""
+  },
+  {
+    "county": "San Mateo",
+    "state": "CA",
+    "cooling_design_temp_F": 96,
+    "heating_design_temp_F": 29,
+    "station": "Alamo California (M)",
+    "notes": ""
+  },
+  {
+    "county": "Santa Barbara",
+    "state": "CA",
+    "cooling_design_temp_F": 93,
+    "heating_design_temp_F": 24,
+    "station": "Cuyama California (M)",
+    "notes": ""
+  },
+  {
+    "county": "Santa Clara",
+    "state": "CA",
+    "cooling_design_temp_F": 97,
+    "heating_design_temp_F": 27,
+    "station": "Newman California (M)",
+    "notes": ""
+  },
+  {
+    "county": "Santa Cruz",
+    "state": "CA",
+    "cooling_design_temp_F": 90,
+    "heating_design_temp_F": 27,
+    "station": "Gilroy California (M)",
+    "notes": ""
+  },
+  {
+    "county": "Shasta",
+    "state": "CA",
+    "cooling_design_temp_F": 102,
+    "heating_design_temp_F": 8,
+    "station": "Redding Municipal Airport California (M)",
+    "notes": ""
+  },
+  {
+    "county": "Sierra",
+    "state": "CA",
+    "cooling_design_temp_F": 100,
+    "heating_design_temp_F": -10,
+    "station": "Dobbins California (M)",
+    "notes": ""
+  },
+  {
+    "county": "Siskiyou",
+    "state": "CA",
+    "cooling_design_temp_F": 96,
+    "heating_design_temp_F": 0,
+    "station": "Happy Camp Ranger Station California (M)",
+    "notes": ""
+  },
+  {
+    "county": "Solano",
+    "state": "CA",
+    "cooling_design_temp_F": 100,
+    "heating_design_temp_F": 27,
+    "station": "Woodland California (M)",
+    "notes": ""
+  },
+  {
+    "county": "Sonoma",
+    "state": "CA",
+    "cooling_design_temp_F": 97,
+    "heating_design_temp_F": 26,
+    "station": "St. Helena California (M)",
+    "notes": ""
+  },
+  {
+    "county": "Stanislaus",
+    "state": "CA",
+    "cooling_design_temp_F": 100,
+    "heating_design_temp_F": 27,
+    "station": "CASTLE AFB CA (A)",
+    "notes": ""
+  },
+  {
+    "county": "Sutter",
+    "state": "CA",
+    "cooling_design_temp_F": 103,
+    "heating_design_temp_F": 28,
+    "station": "Rocklin California (M)",
+    "notes": ""
+  },
+  {
+    "county": "Tehama",
+    "state": "CA",
+    "cooling_design_temp_F": 102,
+    "heating_design_temp_F": 14,
+    "station": "Redding Municipal Airport California (M)",
+    "notes": ""
+  },
+  {
+    "county": "Trinity",
+    "state": "CA",
+    "cooling_design_temp_F": 100,
+    "heating_design_temp_F": 22,
+    "station": "Whiskeytown Res California (M)",
+    "notes": ""
+  },
+  {
+    "county": "Tulare",
+    "state": "CA",
+    "cooling_design_temp_F": 102,
+    "heating_design_temp_F": 7,
+    "station": "Lemoncove California (M)",
+    "notes": ""
+  },
+  {
+    "county": "Tuolumne",
+    "state": "CA",
+    "cooling_design_temp_F": 99,
+    "heating_design_temp_F": 19,
+    "station": "Sonora Ranger Station California (M)",
+    "notes": ""
+  },
+  {
+    "county": "Ventura",
+    "state": "CA",
+    "cooling_design_temp_F": 100,
+    "heating_design_temp_F": 28,
+    "station": "Dry Canyon Res California (M)",
+    "notes": ""
+  },
+  {
+    "county": "Yolo",
+    "state": "CA",
+    "cooling_design_temp_F": 103,
+    "heating_design_temp_F": 28,
+    "station": "Rocklin California (M)",
+    "notes": ""
+  },
+  {
+    "county": "Yuba",
+    "state": "CA",
+    "cooling_design_temp_F": 103,
+    "heating_design_temp_F": 16,
+    "station": "Rocklin California (M)",
+    "notes": ""
+  }
+]
