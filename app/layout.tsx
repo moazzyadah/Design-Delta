@@ -4,11 +4,11 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Design Delta — the design temperature your HVAC is sized with",
   description:
-    "US HVAC equipment is sized against one design temperature per county. Type an address and see the number the code allows next to the number your own block actually reaches.",
+    "Every route to sizing a US home's HVAC starts from one weather station standing in for a whole area. Type an address and see what that station misses about your block.",
   openGraph: {
     title: "Design Delta",
     description:
-      "One design temperature per county. Your block is not the county. See the gap.",
+      "One weather station stands in for your block. See what it misses.",
     type: "website",
   },
 };

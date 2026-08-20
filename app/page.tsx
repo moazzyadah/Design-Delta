@@ -35,7 +35,7 @@ export default function Home() {
             That limit is set by Borrego Desert Park, a station in the
             Anza-Borrego desert. It also governs the coast, sixty miles west
             across a mountain range. Here is what each place actually did in the
-            same month, measured at 100-metre resolution.
+            same month, modelled at 100-metre resolution.
           </p>
 
           <table className="evidence">
@@ -65,8 +65,9 @@ export default function Home() {
             activity <span className="mono">{station.activity_id.slice(0, 8)}</span> across{" "}
             {station.tiles} tiles and{" "}
             <span className="mono">{home.activity_id.slice(0, 8)}</span> across{" "}
-            {home.tiles} tiles. A house on the coast is sized for a desert it
-            never experiences.
+            {home.tiles} tiles. The cap is deliberately permissive so a legitimate Borrego
+            design is not rejected — which is exactly why it cannot describe the
+            coast.
           </figcaption>
         </div>
       </section>
@@ -113,18 +114,19 @@ export default function Home() {
             </div>
             <div className="step">
               <div className="n">03</div>
-              <h3>Measure the block</h3>
+              <h3>Model the block</h3>
               <p>
-                FortyGuard returns air temperature over the address at 100-metre
-                tiles, plus the hours it spent above the county limit.
+                FortyGuard&apos;s Large Temperature Model returns estimated air
+                temperature over the address at 100-metre tiles, plus the hours
+                it spent above the county limit.
               </p>
             </div>
             <div className="step">
               <div className="n">04</div>
-              <h3>Apply ACCA&apos;s own bar</h3>
+              <h3>Flag what matters</h3>
               <p>
-                ACCA treats a 5°F discrepancy as worth correcting. We say plainly
-                whether the gap clears it.
+                Practitioner guidance widely treats a 5°F discrepancy as worth a
+                second look. We say plainly whether the gap clears it.
               </p>
             </div>
           </div>

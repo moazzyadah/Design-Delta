@@ -85,11 +85,11 @@ export default function LookupForm() {
             </div>
 
             <div className="num">
-              <div className="k">Your block actually peaked at</div>
+              <div className="k">Your block&apos;s modelled peak</div>
               <div className="v">
                 {result.blockPeakF !== null ? `${result.blockPeakF}°F` : "—"}
               </div>
-              <div className="s">Hottest hour, July 2024, 100 m tiles</div>
+              <div className="s">Hottest modelled hour, July 2024, 100 m tiles</div>
             </div>
 
             <div className="num accent">
@@ -111,14 +111,14 @@ export default function LookupForm() {
                   : `Your block runs ${Math.abs(result.deltaF)}°F above the limit.`}
               </b>
               {result.material
-                ? "ACCA's own guidance says a 5°F discrepancy should be corrected. This one clears that bar — worth raising with whoever sizes the equipment."
-                : "Under ACCA's 5°F materiality bar. The county number is a reasonable stand-in for this block."}
+                ? "Practitioner guidance treats a 5°F discrepancy as worth correcting. This one clears that bar — worth raising with whoever selects the design station."
+                : "Inside the 5°F band practitioners treat as immaterial. The county number is a reasonable stand-in for this block."}
             </div>
           )}
 
           <p className="examples mono" style={{ marginTop: 16 }}>
             {result.address} · {result.lat.toFixed(4)}, {result.lon.toFixed(4)} ·
-            block data {result.source === "live" ? "read live from FortyGuard" : "from cached FortyGuard reads"}
+            block estimate {result.source === "live" ? "read live from the FortyGuard model" : "from cached FortyGuard model reads"}
           </p>
         </>
       )}
