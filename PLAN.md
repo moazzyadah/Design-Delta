@@ -16,15 +16,15 @@ Not a compliance claim. Not a Manual J replacement. A representativeness check o
 - **Test the tail, never the mean.** Monthly-mean comparison showed a 0.9°F gap and would have killed the project; the exceedance tail comparison showed −36.4 h in Pasadena. Design temperature is a tail property.
 - **No login, ever, in front of the tool.** Organiser requirement: the demo must work in incognito. Accounts, if added, save reports only — never gate the lookup.
 
-## Days 1–3 · The misassignment atlas
+## Days 1–3 · The misassignment atlas — ✅ DONE 21 Aug
 
-The Impact number the pitch currently lacks.
+Built in `tools/atlas/` (run → build → validate), results in `data/atlas/`, method and numbers in README.
 
-- Pick 3 metros: Los Angeles, San Diego, and one inland control (Sacramento or Fresno).
-- For each: grid the metro, pull FortyGuard exceedance per cell, pull candidate NOAA stations.
-- For every cell compute: geographically-nearest station vs thermally-most-similar station (hourly-profile correlation, or exceedance-hours distance).
-- Output: **% of cells where the two disagree**, the distribution of implied design-temperature error, and the worst case.
-- **Checkpoint, end of Day 3.** If disagreement is rare (<5% of cells, errors <3°F), narrow the pitch honestly to boundary-zone homes rather than inflating it. Degraded but still shippable.
+- 1,262 one-km cells across LA / San Diego / Fresno (control), 45 candidate NOAA stations, July 2024, 194 FortyGuard reads, zero failures.
+- Headline: **San Diego 24.9%** of cells ≥5°F off with the nearest station (23.3% fixable by a better station), **LA 9.5%** (all fixable), **Fresno 0%** — the control that keeps the claim honest.
+- Worst cases: Topanga −20.1°F (assigned Santa Monica → undersizing), SD coast +16.1°F (assigned Miramar → oversizing).
+- External validation vs NOAA at 42 stations: median |Δ| 4.2°F, r = 0.969; the model compresses the coast-inland gradient, so atlas rates are conservative.
+- **Checkpoint ruling: full claim stands.** 24.9% ≫ the 5% narrowing trigger. No pitch narrowing needed.
 
 ## Days 4–5 · Close the loop to equipment
 

@@ -1,0 +1,69 @@
+{
+  "window": "July 2024",
+  "threshold_F": 95,
+  "metros": {
+    "fresno": {
+      "metro": "Fresno",
+      "cells": 200,
+      "stations": 5,
+      "pctNearestNotMostSimilar": 64,
+      "pctNearestOffBy5F": 0,
+      "pctFixableBy5F": 0,
+      "medianAbsErrF": 0.1,
+      "p90AbsErrF": 0.8,
+      "worst": {
+        "lat": 36.68,
+        "lon": -119.9,
+        "maxF": 106,
+        "hrs": 233.2,
+        "nearest": "KFAT",
+        "nearestKm": 19.5,
+        "errNearestF": 2.1,
+        "similar": "KVIS",
+        "errSimilarF": -0.3
+      }
+    },
+    "la": {
+      "metro": "Los Angeles",
+      "cells": 641,
+      "stations": 27,
+      "pctNearestNotMostSimilar": 71.8,
+      "pctNearestOffBy5F": 9.5,
+      "pctFixableBy5F": 9.5,
+      "medianAbsErrF": 1.7,
+      "p90AbsErrF": 4.8,
+      "worst": {
+        "lat": 34.09,
+        "lon": -118.63,
+        "maxF": 101.3,
+        "hrs": 20.2,
+        "nearest": "KSMO",
+        "nearestKm": 18.5,
+        "errNearestF": -20.1,
+        "similar": "KFUL",
+        "errSimilarF": -2.2
+      }
+    },
+    "sd": {
+      "metro": "San Diego",
+      "cells": 421,
+      "stations": 13,
+      "pctNearestNotMostSimilar": 80.8,
+      "pctNearestOffBy5F": 24.9,
+      "pctFixableBy5F": 23.3,
+      "medianAbsErrF": 3.1,
+      "p90AbsErrF": 7.5,
+      "worst": {
+        "lat": 32.89,
+        "lon": -117.25,
+        "maxF": 73.7,
+        "hrs": 0,
+        "nearest": "KNKX",
+        "nearestKm": 11.2,
+        "errNearestF": 16.1,
+        "similar": "KNRS",
+        "errSimilarF": 5.8
+      }
+    }
+  }
+}

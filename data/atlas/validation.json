@@ -1,0 +1,325 @@
+{
+  "note": "FortyGuard modelled block peak (median tile, ~2 km box, July 2024) vs NOAA LCD measured hourly dry-bulb max at the same station, same month. The model preserves cross-station ordering (high correlation) but compresses the coastal-inland gradient: coastal stations read warm, hot-interior stations read cool. Atlas misassignment magnitudes are therefore conservative.",
+  "stationsCompared": 42,
+  "medianAbsDeltaF": 4.2,
+  "pearsonR": 0.969,
+  "coastalMeanBiasF": 4.3,
+  "interiorMeanBiasF": -2.7,
+  "stations": [
+    {
+      "icao": "KFAT",
+      "name": "FRESNO YOSEMITE INTERNATIONAL AIRPORT",
+      "modelledF": 108.1,
+      "measuredF": 113,
+      "deltaF": -4.9
+    },
+    {
+      "icao": "KVIS",
+      "name": "VISALIA MUNICIPAL AIRPORT",
+      "modelledF": 105.7,
+      "measuredF": 110,
+      "deltaF": -4.3
+    },
+    {
+      "icao": "KHJO",
+      "name": "HANFORD MUNICIPAL AIRPORT",
+      "modelledF": 108.1,
+      "measuredF": 113,
+      "deltaF": -4.9
+    },
+    {
+      "icao": "KMAE",
+      "name": "MADERA MUNICIPAL AIRPORT",
+      "modelledF": 106.8,
+      "measuredF": 111,
+      "deltaF": -4.2
+    },
+    {
+      "icao": "KNLC",
+      "name": "NAVAL AIR STATION",
+      "modelledF": 108.7,
+      "measuredF": 115,
+      "deltaF": -6.3
+    },
+    {
+      "icao": "KAJO",
+      "name": "CORONA MUNICIPAL AIRPORT",
+      "modelledF": 100.4,
+      "measuredF": 98,
+      "deltaF": 2.4
+    },
+    {
+      "icao": "KRAL",
+      "name": "RIVERSIDE MUNICIPAL ARPT",
+      "modelledF": 104.1,
+      "measuredF": 103,
+      "deltaF": 1.1
+    },
+    {
+      "icao": "KCQT",
+      "name": "DOWNTOWN L.A./USC CAMPUS",
+      "modelledF": 93.1,
+      "measuredF": null,
+      "deltaF": null
+    },
+    {
+      "icao": "KBUR",
+      "name": "BURBANK-GLENDALE-PASA ARPT",
+      "modelledF": 100.1,
+      "measuredF": 97,
+      "deltaF": 3.1
+    },
+    {
+      "icao": "KSMO",
+      "name": "SANTA MONICA MUNI AIRPORT",
+      "modelledF": 81.2,
+      "measuredF": 78,
+      "deltaF": 3.2
+    },
+    {
+      "icao": "KVNY",
+      "name": "VAN NUYS AIRPORT",
+      "modelledF": 103.1,
+      "measuredF": 102,
+      "deltaF": 1.1
+    },
+    {
+      "icao": "KPOC",
+      "name": "BRACKETT FIELD AIRPORT",
+      "modelledF": 101.7,
+      "measuredF": 97,
+      "deltaF": 4.7
+    },
+    {
+      "icao": "KMWS",
+      "name": "MOUNT WILSON",
+      "modelledF": 98.9,
+      "measuredF": null,
+      "deltaF": null
+    },
+    {
+      "icao": "KCNO",
+      "name": "CHINO AIRPORT",
+      "modelledF": 101.2,
+      "measuredF": 101,
+      "deltaF": 0.2
+    },
+    {
+      "icao": "KAVX",
+      "name": "CATALINA AIRPORT",
+      "modelledF": 92,
+      "measuredF": 91,
+      "deltaF": 1
+    },
+    {
+      "icao": "KLAX",
+      "name": "LOS ANGELES INTERNATIONAL AIRPORT",
+      "modelledF": 83.7,
+      "measuredF": 79,
+      "deltaF": 4.7
+    },
+    {
+      "icao": "KTOA",
+      "name": "ZAMPERINI FIELD AIRPORT",
+      "modelledF": 88.4,
+      "measuredF": 81,
+      "deltaF": 7.4
+    },
+    {
+      "icao": "KHHR",
+      "name": "NRTHORP FLD/HATHRN MUNI AP",
+      "modelledF": 87.4,
+      "measuredF": 81,
+      "deltaF": 6.4
+    },
+    {
+      "icao": "KLGB",
+      "name": "LONG BEACH / DAUGHERTY FIELD / AIRPORT",
+      "modelledF": 95,
+      "measuredF": 91,
+      "deltaF": 4
+    },
+    {
+      "icao": "KSLI",
+      "name": "LOS ALAMITOS AAF AIRPORT",
+      "modelledF": 95.3,
+      "measuredF": 91,
+      "deltaF": 4.3
+    },
+    {
+      "icao": "KFUL",
+      "name": "FULLERTON MUNICIPAL ARPT",
+      "modelledF": 99.1,
+      "measuredF": 93,
+      "deltaF": 6.1
+    },
+    {
+      "icao": "KSNA",
+      "name": "J. WAYNE APT-ORANGE CO APT",
+      "modelledF": 91.4,
+      "measuredF": 84,
+      "deltaF": 7.4
+    },
+    {
+      "icao": "KWJF",
+      "name": "GENERAL WILLIAM J. FOX AIRFIELD AIRPORT",
+      "modelledF": 108,
+      "measuredF": 114,
+      "deltaF": -6
+    },
+    {
+      "icao": "KPMD",
+      "name": "PDLE PRODN FLT/TST AF PLT",
+      "modelledF": 107.1,
+      "measuredF": 114,
+      "deltaF": -6.9
+    },
+    {
+      "icao": "KVCV",
+      "name": "SOUTHERN CALIFORNIA LOGISTICS AIRPORT",
+      "modelledF": 106.7,
+      "measuredF": 111,
+      "deltaF": -4.3
+    },
+    {
+      "icao": "KSDB",
+      "name": "SANDBERG",
+      "modelledF": 102.1,
+      "measuredF": 104,
+      "deltaF": -1.9
+    },
+    {
+      "icao": "KNTD",
+      "name": "POINT MUGU",
+      "modelledF": 78.1,
+      "measuredF": 75,
+      "deltaF": 3.1
+    },
+    {
+      "icao": "KCMA",
+      "name": "CAMARILLO AIRPORT",
+      "modelledF": 87.8,
+      "measuredF": 85,
+      "deltaF": 2.8
+    },
+    {
+      "icao": "KOXR",
+      "name": "OXNARD AIRPORT",
+      "modelledF": 80,
+      "measuredF": 75,
+      "deltaF": 5
+    },
+    {
+      "icao": "KWHP",
+      "name": "WHITMAN AIRPORT",
+      "modelledF": 101.5,
+      "measuredF": 102,
+      "deltaF": -0.5
+    },
+    {
+      "icao": "KONT",
+      "name": "ONTARIO INTERNATIONAL ARPT",
+      "modelledF": 103.2,
+      "measuredF": 101,
+      "deltaF": 2.2
+    },
+    {
+      "icao": "KEMT",
+      "name": "EL MONTE AIRPORT",
+      "modelledF": 100.4,
+      "measuredF": 95,
+      "deltaF": 5.4
+    },
+    {
+      "icao": "KSAN",
+      "name": "SAN DIEGO INTERNATIONAL AIRPORT",
+      "modelledF": 85.1,
+      "measuredF": 80,
+      "deltaF": 5.1
+    },
+    {
+      "icao": "KMYF",
+      "name": "MONTGOMERY FIELD AIRPORT",
+      "modelledF": 91.9,
+      "measuredF": 88,
+      "deltaF": 3.9
+    },
+    {
+      "icao": "KSDM",
+      "name": "BROWN FIELD MUNICIPAL ARPT",
+      "modelledF": 89.8,
+      "measuredF": 86,
+      "deltaF": 3.8
+    },
+    {
+      "icao": "KNZY",
+      "name": "NORTH ISLAND NAS",
+      "modelledF": 84.4,
+      "measuredF": 81,
+      "deltaF": 3.4
+    },
+    {
+      "icao": "KSEE",
+      "name": "GILLESPIE FIELD AIRPORT",
+      "modelledF": 99.7,
+      "measuredF": 95,
+      "deltaF": 4.7
+    },
+    {
+      "icao": "KNRS",
+      "name": "NAVAL AUXILIARY LANDING FD",
+      "modelledF": 79.5,
+      "measuredF": 80,
+      "deltaF": -0.5
+    },
+    {
+      "icao": "KNFG",
+      "name": "MARINE CORPS AIR STATION",
+      "modelledF": 92,
+      "measuredF": 87,
+      "deltaF": 5
+    },
+    {
+      "icao": "KCRQ",
+      "name": "MCCLELLAN-PALOMAR AIRPORT",
+      "modelledF": 85.4,
+      "measuredF": 77,
+      "deltaF": 8.4
+    },
+    {
+      "icao": "KNXF",
+      "name": "MCOLF CAMP PENDLETON RED BEACH AIRPORT",
+      "modelledF": 79.6,
+      "measuredF": null,
+      "deltaF": null
+    },
+    {
+      "icao": "KNKX",
+      "name": "MARINE CORPS AIR STATION",
+      "modelledF": 89.8,
+      "measuredF": 86,
+      "deltaF": 3.8
+    },
+    {
+      "icao": "KOKB",
+      "name": "OCEANSIDE MUNICIPAL ARPT",
+      "modelledF": 86.1,
+      "measuredF": 82,
+      "deltaF": 4.1
+    },
+    {
+      "icao": "KRNM",
+      "name": "RAMONA AIRPORT",
+      "modelledF": 99.7,
+      "measuredF": 101,
+      "deltaF": -1.3
+    },
+    {
+      "icao": "99999953151",
+      "name": "FALLBROOK 5 NE",
+      "modelledF": 97.5,
+      "measuredF": 97,
+      "deltaF": 0.5
+    }
+  ]
+}

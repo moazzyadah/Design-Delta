@@ -33,6 +33,22 @@ The error runs in **both directions inside a single metro**. Pasadena's nearest 
 
 **Methodological note, because it nearly produced the wrong answer:** the same comparison on *monthly mean* temperature showed a 0.9°F average gap and would have suggested there is no problem at all. Design temperature is a property of the extreme tail, not the mean. All comparisons here use `analytic_type: "exceedance"` at a high threshold.
 
+## The misassignment atlas
+
+How often is the nearest station the wrong one? We gridded three metros into 1 km cells (sampled 0.04° chunks, 100 m FortyGuard tiles, July 2024) and compared every cell's modelled July peak and hours above 95°F against every real NOAA station within 40 miles — the same radius Standard 310 uses. Both sides of every comparison come from the same model, so the deltas are internally consistent.
+
+| Metro | Cells | Stations | Nearest station ≥5°F off | Fixable by better station | Median abs err | p90 | Worst cell |
+|---|---|---|---|---|---|---|---|
+| San Diego | 421 | 13 | **24.9%** | 23.3% | 3.1°F | 7.5°F | +16.1°F — coastal cell assigned inland Miramar (KNKX) |
+| Los Angeles | 641 | 27 | **9.5%** | 9.5% | 1.7°F | 4.8°F | −20.1°F — Topanga cell assigned Santa Monica (KSMO) |
+| Fresno (control) | 200 | 5 | **0%** | — | 0.1°F | 0.8°F | 2.1°F |
+
+The control matters as much as the headline: in Fresno's thermally uniform valley the nearest-station rule works essentially perfectly, so the tool does not cry wolf everywhere. The errors concentrate exactly where physical geography says they should — marine-layer boundaries and terrain — and they run in both directions (undersizing risk in Topanga, oversizing risk on the San Diego coast). Nearly every material error disappears when the thermally-most-similar station is chosen instead.
+
+**External validation** ([data/atlas/validation.json](data/atlas/validation.json)): the modelled July-2024 peak at 42 station blocks was checked against NOAA's measured hourly maximum at those same stations. Median absolute difference 4.2°F, correlation r = 0.969 — the model preserves the cross-station *ordering* the similarity matching depends on. Its one systematic bias compresses the coastal-inland gradient (coastal stations read ~4°F warm, hot-interior stations ~3°F cool), which means the misassignment rates above are **understated**, not inflated.
+
+Reproduce with `node --env-file=.env tools/atlas/run.mjs all` then `node tools/atlas/build.mjs` and `node tools/atlas/validate.mjs`.
+
 ## What this is not
 
 - **Not a Manual J calculation** and not a substitute for one.
@@ -93,9 +109,9 @@ Without a key the app serves cached results from `data/block_cache.json`. This i
 
 ## Status
 
-Working: address lookup, county reference for California, live FortyGuard reads with cache fallback, the exceedance comparison.
+Working: address lookup, county reference for California, live FortyGuard reads with cache fallback, the exceedance comparison, the three-metro misassignment atlas with NOAA validation (`data/atlas/`).
 
-In progress: the station-representativeness atlas (how often the nearest station is the wrong one, across several metros) and the equipment-impact panel (what the difference means in tons). See `PLAN.md`.
+In progress: surfacing the atlas in the UI as an active recommendation ("use station X, not Y"), and the equipment-impact panel (what the difference means in tons). See `PLAN.md`.
 
 ## Credits
 
