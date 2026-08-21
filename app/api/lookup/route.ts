@@ -7,6 +7,8 @@ import {
   type LookupResult,
 } from "@/lib/lookup";
 import cache from "@/data/block_cache.json";
+import { stationAssignment } from "@/lib/stations";
+import { equipmentDelta } from "@/lib/equipment";
 
 export const runtime = "nodejs";
 export const maxDuration = 60;
@@ -97,11 +99,18 @@ export async function GET(req: Request) {
 
   const deltaF = Math.round((row.cooling_design_temp_F - block.blockPeakF) * 10) / 10;
 
+  const assignment = stationAssignment(place.lat, place.lon, block.blockPeakF);
+  const equipment = assignment
+    ? equipmentDelta(assignment.nearest.julyPeakF, block.blockPeakF)
+    : null;
+
   return NextResponse.json({
     ...base,
     ...block,
     deltaF,
     material: Math.abs(deltaF) >= MATERIALITY_F,
     source,
+    assignment,
+    equipment,
   });
 }

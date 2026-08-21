@@ -9,6 +9,9 @@ export type CountyRow = {
   notes: string;
 };
 
+import type { Assignment } from "@/lib/stations";
+import type { Equipment } from "@/lib/equipment";
+
 export type LookupResult = {
   address: string;
   county: string;
@@ -23,6 +26,8 @@ export type LookupResult = {
   material: boolean | null;
   source: "live" | "cache" | "unavailable";
   note?: string;
+  assignment?: Assignment | null;
+  equipment?: Equipment | null;
 };
 
 /** ACCA's own materiality bar: "off by 5 degrees, you should correct it." */

@@ -26,24 +26,18 @@ Built in `tools/atlas/` (run → build → validate), results in `data/atlas/`, 
 - External validation vs NOAA at 42 stations: median |Δ| 4.2°F, r = 0.969; the model compresses the coast-inland gradient, so atlas rates are conservative.
 - **Checkpoint ruling: full claim stands.** 24.9% ≫ the 5% narrowing trigger. No pitch narrowing needed.
 
-## Days 4–5 · Close the loop to equipment
+## Days 4–5 · Close the loop to equipment — ✅ DONE 21 Aug
 
-Kills the "no demonstrated outcome" objection.
+`lib/equipment.ts` + panel in the lookup results. One archetype (2,000 ft², R-13/R-38, 15% glazing, 0.5 ACH, every assumption printed on screen), ACCA-style sensible load at the nearest station's temp vs the block's, half-ton equipment steps. Verified live: Topanga = 1.5 vs 2.5 tons (undersized), La Jolla = 2.0 vs 1.5 (oversized), Fresno = aligned. Deliberately fed by **station-vs-block**, never ceiling-vs-block — the cap framing is dead.
 
-- One archetype home (floor area, envelope, glazing, orientation — stated openly).
-- Simplified ACCA-style sensible load at both design temperatures.
-- Show the equipment consequence: tonnage, cost delta, and the short-cycling/humidity story when oversized.
-- One panel. Every assumption printed on screen.
+## Day 6 · Output a decision, not a map — ✅ DONE 21 Aug (peak-match version)
 
-## Day 6 · Output a decision, not a map
-
-`Use KBUR, not KLAX — hourly-profile correlation 0.94 vs 0.71. You are on the inland side of the marine-layer boundary.`
-
-Show the similarity method in the UI; that is where the Technical Execution points are.
+Shipped in the lookup UI: "Use KNRS, not KNKX" — nearest verified station vs best thermal match within 40 miles, both with their modelled July peaks and errors. Candidates are restricted to the 42 NOAA-validated stations (`lib/stations.ts`). In-app matching is 1-D on modelled July peak (works from live or cached reads alike); the atlas's richer 2-feature matching stays the atlas methodology. Optional polish later: surface the atlas map visually.
 
 ## Day 7 · Freeze
 
 - Precompute every tile, station record and similarity score into static JSON.
+- Seed `block_cache.json` from the 1,262 atlas cells so cache-mode covers all three metros — note the atlas exceedance is at 95°F while the app's is at the county ceiling; cache entries need `hoursAboveCeiling` recomputed or approximated honestly.
 - Out-of-coverage addresses redirect gracefully to the three demo metros.
 - Verify in incognito, on a phone, with the API key removed from the environment.
 

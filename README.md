@@ -109,9 +109,9 @@ Without a key the app serves cached results from `data/block_cache.json`. This i
 
 ## Status
 
-Working: address lookup, county reference for California, live FortyGuard reads with cache fallback, the exceedance comparison, the three-metro misassignment atlas with NOAA validation (`data/atlas/`).
+Working: address lookup, county reference for California, live FortyGuard reads with cache fallback, the exceedance comparison, the three-metro misassignment atlas with NOAA validation (`data/atlas/`), the station recommendation ("Use KNRS, not KNKX" — nearest verified station vs best thermal match within 40 miles), and the equipment-impact panel (an openly-stated 2,000 ft² archetype, ACCA-style sensible load at both temperatures, half-ton equipment steps).
 
-In progress: surfacing the atlas in the UI as an active recommendation ("use station X, not Y"), and the equipment-impact panel (what the difference means in tons). See `PLAN.md`.
+Next: freeze and precache everything so the demo answers across all three metros after API access ends. See `PLAN.md`.
 
 ## Credits
 
