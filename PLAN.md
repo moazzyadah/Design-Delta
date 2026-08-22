@@ -50,5 +50,7 @@ Shipped in the lookup UI: "Use KNRS, not KNKX" — nearest verified station vs b
 
 ## Owner actions
 
-- [ ] Add `hackathon@fortyguard.com` as a collaborator before submitting (Day 8).
+- [ ] Repo decision, 21 Aug: make `github.com/moazzyadah/Design-Delta` **public** instead of adding a collaborator (Settings → Danger Zone → Change visibility). Confirmed clean of secrets before this was suggested. If it stays private instead, add `hackathon@fortyguard.com` as a collaborator before submitting.
+- [ ] Demo video (max 3 min, YouTube/Loom unlisted) — deferred to after 24 Aug (Monday). Script: open on the EPA "geographically closest" quote, then the misassignment atlas table (SD 24.9%), then show the lookup tool live going through La Jolla/Borrego/Topanga, close on the equipment-tons consequence.
 - [ ] Optional: a free Supabase project (URL + anon key) if saved reports are wanted. Not a blocker.
+- [ ] Submission form: everything except the collaborator question and the video link is drafted (see chat 21 Aug) — title, pitch, tracks, audience, coverage, API usage, AI-tools disclosure, API key (in `.env`), repo link, live demo link (verified working, no-login).
