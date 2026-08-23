@@ -105,7 +105,14 @@ echo "FORTYGUARD_API_KEY=your_key_here" > .env.local
 npm run dev
 ```
 
-Without a key the app serves cached results from `data/block_cache.json`. This is deliberate: participant API access ends 30 August while judging runs to 14 September, so the deployed demo is designed to keep answering from cache after the key expires.
+The app reads `data/block_cache.json` **first** and only calls the live API for an address that was never precomputed. This is deliberate: participant API access ends 30 August while judging runs to 14 September, so the deployed demo answers entirely from static data with no key present. The cache holds 5,300 cells — every ~1 km cell of Los Angeles, San Diego and Fresno, each with its modelled July peak and its hours above that county's ceiling — so those addresses resolve instantly and permanently. Addresses outside those metros say so plainly rather than failing.
+
+Verify the frozen path yourself by running without a key:
+
+```bash
+npm run build && npm start          # no .env, no FORTYGUARD_API_KEY
+curl "localhost:3000/api/lookup?address=120+S+Topanga+Canyon+Blvd,+Topanga,+CA+90290"
+```
 
 ## Status
 

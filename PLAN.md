@@ -34,12 +34,16 @@ Built in `tools/atlas/` (run → build → validate), results in `data/atlas/`, 
 
 Shipped in the lookup UI: "Use KNRS, not KNKX" — nearest verified station vs best thermal match within 40 miles, both with their modelled July peaks and errors. Candidates are restricted to the 42 NOAA-validated stations (`lib/stations.ts`). In-app matching is 1-D on modelled July peak (works from live or cached reads alike); the atlas's richer 2-feature matching stays the atlas methodology. Optional polish later: surface the atlas map visually.
 
-## Day 7 · Freeze
+## Day 7 · Freeze — in progress 23 Aug
 
-- Precompute every tile, station record and similarity score into static JSON.
-- Seed `block_cache.json` from the 1,262 atlas cells so cache-mode covers all three metros — note the atlas exceedance is at 95°F while the app's is at the county ceiling; cache entries need `hoursAboveCeiling` recomputed or approximated honestly.
-- Out-of-coverage addresses redirect gracefully to the three demo metros.
-- Verify in incognito, on a phone, with the API key removed from the environment.
+- [x] `tools/atlas/ceiling.mjs` — 49 extra reads giving hours above each metro's **own county ceiling** (LA 102°F, SD 105°F, Fresno 104°F). The atlas's 95°F tail threshold is the right statistic for station matching but is not the number the app reports, so it could not be reused.
+- [x] `tools/atlas/freeze.mjs` — collapses every read into one `data/block_cache.json` covering all three metros on a ~1 km grid.
+- [x] API route is now **cache-first, live-second**: the demo answers with no key at all, and a live call only ever fills an address never precomputed. A cached hour count is suppressed rather than shown if the address's county ceiling differs from the one it was counted against.
+- [x] `tools/atlas/cover.mjs` — the atlas sampled 0.04° chunks every 0.1°, covering only ~16% of each metro. Testing with the key removed exposed it: a downtown Fresno address returned "unavailable". 104 contiguous 0.1° reads now tile all three metro boxes with no gaps → **5,300 cached cells**, 143 KB.
+- [x] Live path corrected to match the cache: block peak is the **median** tile, not the max. Station blocks in `data/atlas` are medians, so the old live max compared a block's hot spot against a station's typical tile.
+- [x] Out-of-coverage addresses say so plainly and point at the three metros.
+- [x] Verified with `FORTYGUARD_API_KEY=` empty: La Jolla, Borrego, Topanga, Fresno, downtown LA and the Getty all answer from cache; a non-California address returns a clean message.
+- [ ] Verify in incognito on a phone.
 
 ## Days 8–9 · Submit
 

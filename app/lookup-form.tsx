@@ -194,7 +194,10 @@ export default function LookupForm() {
 
           <p className="examples mono" style={{ marginTop: 16 }}>
             {result.address} · {result.lat.toFixed(4)}, {result.lon.toFixed(4)} ·
-            block estimate {result.source === "live" ? "read live from the FortyGuard model" : "from cached FortyGuard model reads"}
+            block estimate{" "}
+            {result.source === "live"
+              ? "read live from the FortyGuard model"
+              : "from FortyGuard model reads precomputed for July 2024"}
           </p>
         </>
       )}

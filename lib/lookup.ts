@@ -150,10 +150,17 @@ export async function fortyguardBlock(
     ),
   ]);
 
+  // Median, not max. Each tile already carries its own July maximum, so the
+  // median describes the block while the max describes its single worst spot.
+  // Station blocks in data/atlas are medians too — mixing the two would compare
+  // a block's hot spot against a station's typical tile.
   const tiles = peak.map_data.features as Array<{
     properties: { max_temperature: number };
   }>;
-  const blockPeakC = Math.max(...tiles.map((t) => t.properties.max_temperature));
+  const sorted = tiles.map((t) => t.properties.max_temperature).sort((a, b) => a - b);
+  const mid = sorted.length >> 1;
+  const blockPeakC =
+    sorted.length % 2 ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2;
 
   return {
     blockPeakF: Math.round(c2f(blockPeakC) * 10) / 10,

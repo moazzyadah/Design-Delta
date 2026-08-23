@@ -14,6 +14,9 @@ export const WINDOW = {
 };
 
 export const THRESH_C = 35.0; // 95°F — the tail threshold used across the project
+
+// Each metro box sits in one county; from data/resnet_appendix_a_ca.json.
+export const CEILING_F = { la: 102, sd: 105, fresno: 104 };
 export const CHUNK_HALF = 0.02; // sampled chunk = 0.04° box (~4 km)
 export const STATION_HALF = 0.01; // station block = 0.02° box (~2 km)
 export const ASSIGNABLE_KM = 64.4; // 40 miles — mirrors RESNET 310's station radius
