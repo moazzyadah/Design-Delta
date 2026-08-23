@@ -22,7 +22,8 @@ export default function Home() {
             24 in California — begins with one outdoor design temperature drawn
             from one weather station that represents a whole area. That station
             can sit forty miles and three thousand feet from the house it speaks
-            for. Type an address and see what it misses.
+            for. In San Diego it misrepresents its own block by 5°F or more{" "}
+            <strong>one time in four</strong>. Type an address and see.
           </p>
           <div style={{ marginTop: 40 }}>
             <LookupForm />
@@ -84,6 +85,39 @@ export default function Home() {
             {atlas.sd.pctFixableBy5F} of {atlas.sd.pctNearestOffBy5F}% in San Diego.
           </figcaption>
 
+          <h3 className="atlas-sub">Does the answer depend on where we put the bar?</h3>
+          <p className="atlas-note">
+            &ldquo;5°F&rdquo; is a practitioner rule of thumb, not a figure any
+            standard publishes, and one constant produces every percentage above.
+            So here is the whole curve. San Diego stays substantial down to a
+            strict 10°F bar, and Fresno stays at exactly zero at every one — the
+            control does not depend on the threshold either.
+          </p>
+          <table className="evidence sensitivity">
+            <thead>
+              <tr>
+                <th>Bar</th>
+                {[atlas.sd, atlas.la, atlas.fresno].map((m) => (
+                  <th key={m.metro}>{m.metro}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {atlas.sd.sensitivity.map((row, i) => (
+                <tr key={row.barF}>
+                  <td className={row.barF === 5 ? "mono chosen" : "mono"}>
+                    {row.barF}°F{row.barF === 5 ? " ← used" : ""}
+                  </td>
+                  {[atlas.sd, atlas.la, atlas.fresno].map((m) => (
+                    <td key={m.metro} className={row.barF === 5 ? "chosen" : ""}>
+                      {m.sensitivity[i].pct}%
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+
           <AtlasMap />
 
           <figcaption style={{ marginTop: 24 }}>
@@ -112,16 +146,20 @@ export default function Home() {
             valley and desert, the desert wins.
           </p>
           <p style={{ marginTop: 16 }}>
-            <strong>Where that limit binds.</strong> Standard 310 is a grading
+            <strong>Where that limit applies.</strong> Standard 310 is a grading
             standard — by its own text it exists &ldquo;to support consistency in
             energy rating and labeling&rdquo; and is written for raters, auditors
-            and HVAC contractors. Its ceiling governs HERS-rated homes, ENERGY
-            STAR certification and the 45L tax credit — roughly 420,000 US homes
-            a year. Ordinary permitted work uses Manual J&apos;s own design
-            conditions, and California uses Title 24. Different tables, same
-            structure: one station, assigned to an area, standing in for every
-            block inside it. This tool measures that substitution; it does not
-            claim any one of those tables is misapplied.
+            and HVAC contractors. Its ceiling applies to HERS-rated homes, ENERGY
+            STAR certification and the 45L tax credit. RESNET reports{" "}
+            <a href="https://www.resnet.us/articles/the-2026-trends-in-hers-rated-homes-report">
+              420,135 homes HERS-rated in 2025
+            </a>
+            , 34% of all new single-family construction. Ordinary permitted work
+            uses Manual J&apos;s own design conditions, and California uses Title
+            24. Different tables, same structure: one station, assigned to an
+            area, standing in for every block inside it. This tool measures that
+            substitution; it does not claim any one of those tables is
+            misapplied.
           </p>
 
           <div className="steps">
@@ -130,7 +168,7 @@ export default function Home() {
               <h3>Find the county</h3>
               <p>
                 The US Census geocoder turns the address into coordinates and the
-                county that governs it.
+                county it sits in.
               </p>
             </div>
             <div className="step">

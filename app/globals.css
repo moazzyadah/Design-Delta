@@ -219,3 +219,9 @@ a { color: var(--coral-ink); }
 /* Station tags scale with the SVG and go sub-legible on a phone — the map
    still reads by colour, and every marker keeps its tooltip. */
 @media (max-width: 720px) { .atlas-tag { display: none; } }
+
+.atlas-sub { color: var(--on-dark); margin-top: var(--sp-5); font-size: var(--fs-h3); }
+.atlas-note { color: var(--on-dark-soft); font-size: var(--fs-sm); max-width: 62ch; margin-top: var(--sp-1); }
+.evidence.sensitivity { margin-top: var(--sp-2); max-width: 640px; }
+.evidence.sensitivity td { padding: 9px 0; font-variant-numeric: tabular-nums; }
+.evidence.sensitivity td.chosen { color: var(--on-dark); font-weight: 600; }

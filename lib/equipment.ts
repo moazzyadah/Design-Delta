@@ -45,7 +45,15 @@ function coolingTons(designF: number) {
 /** Round up to the half-ton units equipment actually comes in. */
 const unitTons = (t: number) => Math.max(1.5, Math.ceil(t * 2) / 2);
 
-export function equipmentDelta(nearestF: number, blockF: number): Equipment {
+export function equipmentDelta(
+  nearestF: number,
+  blockF: number
+): Equipment | null {
+  // Below the indoor setpoint the conduction term is zero and the whole load is
+  // the assumed solar and internal gain, so the tonnage would describe our
+  // constants rather than the temperature difference the tool exists to show.
+  if (blockF <= A.indoorF || nearestF <= A.indoorF) return null;
+
   const atNearestTons = unitTons(coolingTons(nearestF));
   const atBlockTons = unitTons(coolingTons(blockF));
   const deltaTons = Math.round((atNearestTons - atBlockTons) * 10) / 10;

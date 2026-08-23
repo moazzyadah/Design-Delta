@@ -87,10 +87,20 @@ for (const slug of Object.keys(METROS)) {
     Math.abs(b.errNearestF) > Math.abs(a.errNearestF) ? b : a
   );
 
+  // The 5°F bar is a practitioner rule of thumb, not a published standard, and
+  // one constant produces every headline. Publish the whole curve so the result
+  // can be read at any bar a reader prefers — and so the Fresno control can be
+  // seen holding at zero wherever the bar sits.
+  const sensitivity = [3, 4, 5, 6, 8, 10].map((bar) => ({
+    barF: bar,
+    pct: r1((100 * cells.filter((c) => Math.abs(c.errNearestF) >= bar).length) / cells.length),
+  }));
+
   summary[slug] = {
     metro: METROS[slug].name,
     cells: cells.length,
     stations: stations.length,
+    sensitivity,
     pctNearestOffBy5F: r1((100 * material.length) / cells.length),
     pctFixableBy5F: r1((100 * fixable.length) / cells.length),
     pctTooHot: r1((100 * cells.filter((c) => c.errNearestF >= MATERIAL_F).length) / cells.length),

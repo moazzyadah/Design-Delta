@@ -30,7 +30,11 @@ export type LookupResult = {
   equipment?: Equipment | null;
 };
 
-/** ACCA's own materiality bar: "off by 5 degrees, you should correct it." */
+/**
+ * The bar this tool calls "material". It is a practitioner rule of thumb, not a
+ * value published by any standard — data/atlas/summary_full.json carries the
+ * full sensitivity curve so the headline can be read at any other bar.
+ */
 export const MATERIALITY_F = 5;
 
 const c2f = (c: number) => (c * 9) / 5 + 32;

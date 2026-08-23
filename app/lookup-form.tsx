@@ -3,10 +3,14 @@
 import { useState } from "react";
 import type { LookupResult } from "@/lib/lookup";
 
+// One address per outcome: a station reading too cool, one reading too hot, and
+// one that is simply right. Each has a block peak above the 75°F indoor setpoint,
+// so the equipment panel describes the temperature gap rather than our
+// assumed solar gain.
 const EXAMPLES = [
-  "1298 Prospect St, La Jolla, CA 92037",
-  "590 Palm Canyon Dr, Borrego Springs, CA 92004",
   "120 S Topanga Canyon Blvd, Topanga, CA 90290",
+  "1050 Camino Del Mar, Del Mar, CA 92014",
+  "200 N Spring St, Los Angeles, CA 90012",
 ];
 
 export default function LookupForm() {
@@ -143,25 +147,32 @@ export default function LookupForm() {
                 </div>
               </div>
 
-              <div
-                className={`verdict ${
-                  Math.abs(result.assignment.errNearestF) >= 5 ? "material" : "minor"
-                }`}
-              >
-                <b>
-                  {Math.abs(result.assignment.errNearestF) >= 5 &&
-                  result.assignment.bestMatch.icao !== result.assignment.nearest.icao
-                    ? `Use ${result.assignment.bestMatch.icao}, not ${result.assignment.nearest.icao}.`
-                    : `${result.assignment.nearest.icao} is a fair stand-in here.`}
-                </b>
-                EPA guidance points designers to the geographically closest
-                station. For this block that is {result.assignment.nearest.icao},
-                whose modelled July peak misses the block by{" "}
-                {Math.abs(result.assignment.errNearestF)}°F.{" "}
-                {result.assignment.bestMatch.icao !== result.assignment.nearest.icao
-                  ? `${result.assignment.bestMatch.icao} matches within ${Math.abs(result.assignment.errBestF)}°F. Only NOAA-verified stations within 40 miles are considered.`
-                  : "No verified station within 40 miles matches better."}
-              </div>
+              {(() => {
+                const a = result.assignment!;
+                const material = Math.abs(a.errNearestF) >= 5;
+                const swap =
+                  material && a.bestClearsBar && a.bestMatch.icao !== a.nearest.icao;
+                return (
+                  <div className={`verdict ${material ? "material" : "minor"}`}>
+                    <b>
+                      {swap
+                        ? `Use ${a.bestMatch.icao}, not ${a.nearest.icao}.`
+                        : material
+                        ? `No station within 40 miles describes this block well.`
+                        : `${a.nearest.icao} is a fair stand-in here.`}
+                    </b>
+                    EPA guidance points designers to the geographically closest
+                    station. For this block that is {a.nearest.icao} at{" "}
+                    {a.nearest.km} km, whose modelled July peak misses the block by{" "}
+                    {Math.abs(a.errNearestF)}°F.{" "}
+                    {swap
+                      ? `${a.bestMatch.icao} is farther away at ${a.bestMatch.km} km but matches within ${Math.abs(a.errBestF)}°F. A thermally similar station beats a merely close one — but the substitution is a professional judgement, not an automatic correction.`
+                      : material
+                      ? `The closest verified alternative, ${a.bestMatch.icao}, is still ${Math.abs(a.errBestF)}°F out. This block sits in a gap in the station network; we will not invent a replacement for it.`
+                      : "No verified station within 40 miles matches better."}
+                  </div>
+                );
+              })()}
 
               {result.equipment && (
                 <div

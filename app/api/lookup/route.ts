@@ -67,6 +67,19 @@ export async function GET(req: Request) {
     );
   }
 
+  // County names are not unique across states. Kings, Orange, Lake, Nevada,
+  // Sierra, Humboldt, Butte and Trinity all exist outside California, so
+  // matching on name alone answered a Brooklyn address with a Central Valley
+  // design temperature and called it exact.
+  if (place.state && place.state !== "CA") {
+    return NextResponse.json(
+      {
+        error: `${place.matched} is in ${place.state}. This preview covers California only — county design-temperature limits are state-specific, and ${place.county} exists in more than one state.`,
+      },
+      { status: 404 }
+    );
+  }
+
   const row = countyCeiling(place.county);
   if (!row) {
     return NextResponse.json(
@@ -79,7 +92,8 @@ export async function GET(req: Request) {
 
   const base: LookupResult = {
     address: place.matched,
-    county: place.county,
+    // The geocoder already says "San Diego County"; the UI adds the word again.
+    county: place.county.replace(/\s+County$/i, ""),
     state: row.state,
     lat: place.lat,
     lon: place.lon,

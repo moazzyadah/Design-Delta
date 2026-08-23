@@ -7,6 +7,32 @@
       "metro": "Fresno",
       "cells": 861,
       "stations": 5,
+      "sensitivity": [
+        {
+          "barF": 3,
+          "pct": 0
+        },
+        {
+          "barF": 4,
+          "pct": 0
+        },
+        {
+          "barF": 5,
+          "pct": 0
+        },
+        {
+          "barF": 6,
+          "pct": 0
+        },
+        {
+          "barF": 8,
+          "pct": 0
+        },
+        {
+          "barF": 10,
+          "pct": 0
+        }
+      ],
       "pctNearestOffBy5F": 0,
       "pctFixableBy5F": 0,
       "pctTooHot": 0,
@@ -28,6 +54,32 @@
       "metro": "Los Angeles",
       "cells": 2677,
       "stations": 27,
+      "sensitivity": [
+        {
+          "barF": 3,
+          "pct": 28.8
+        },
+        {
+          "barF": 4,
+          "pct": 19.1
+        },
+        {
+          "barF": 5,
+          "pct": 11.8
+        },
+        {
+          "barF": 6,
+          "pct": 9.5
+        },
+        {
+          "barF": 8,
+          "pct": 4.7
+        },
+        {
+          "barF": 10,
+          "pct": 1.7
+        }
+      ],
       "pctNearestOffBy5F": 11.8,
       "pctFixableBy5F": 11.6,
       "pctTooHot": 5.1,
@@ -49,6 +101,32 @@
       "metro": "San Diego",
       "cells": 1761,
       "stations": 13,
+      "sensitivity": [
+        {
+          "barF": 3,
+          "pct": 51.5
+        },
+        {
+          "barF": 4,
+          "pct": 39.5
+        },
+        {
+          "barF": 5,
+          "pct": 26.2
+        },
+        {
+          "barF": 6,
+          "pct": 18.5
+        },
+        {
+          "barF": 8,
+          "pct": 9.1
+        },
+        {
+          "barF": 10,
+          "pct": 4.8
+        }
+      ],
       "pctNearestOffBy5F": 26.2,
       "pctFixableBy5F": 25.3,
       "pctTooHot": 11.4,
