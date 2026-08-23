@@ -35,15 +35,19 @@ The error runs in **both directions inside a single metro**. Pasadena's nearest 
 
 ## The misassignment atlas
 
-How often is the nearest station the wrong one? We gridded three metros into 1 km cells (sampled 0.04° chunks, 100 m FortyGuard tiles, July 2024) and compared every cell's modelled July peak and hours above 95°F against every real NOAA station within 40 miles — the same radius Standard 310 uses. Both sides of every comparison come from the same model, so the deltas are internally consistent.
+How often is the nearest station the wrong one? We tiled three metros with contiguous 100 m FortyGuard reads (July 2024), pooled them into ~1 km cells, and compared every cell's modelled July peak against every real weather station within 40 miles — the same radius Standard 310 uses. Both sides of every comparison come from the same model, so the deltas are internally consistent.
 
 | Metro | Cells | Stations | Nearest station ≥5°F off | Fixable by better station | Median abs err | p90 | Worst cell |
 |---|---|---|---|---|---|---|---|
-| San Diego | 421 | 13 | **24.9%** | 23.3% | 3.1°F | 7.5°F | +16.1°F — coastal cell assigned inland Miramar (KNKX) |
-| Los Angeles | 641 | 27 | **9.5%** | 9.5% | 1.7°F | 4.8°F | −20.1°F — Topanga cell assigned Santa Monica (KSMO) |
-| Fresno (control) | 200 | 5 | **0%** | — | 0.1°F | 0.8°F | 2.1°F |
+| San Diego | 1,761 | 13 | **26.2%** | 25.3% | 3.1°F | 7.7°F | +17.8°F — La Jolla coast assigned Montgomery Field (KMYF) |
+| Los Angeles | 2,677 | 27 | **11.8%** | 11.6% | 1.8°F | 5.8°F | −20.0°F — Topanga assigned Santa Monica (KSMO) |
+| Fresno (control) | 861 | 5 | **0%** | — | 0.2°F | 0.9°F | +2.2°F |
 
-The control matters as much as the headline: in Fresno's thermally uniform valley the nearest-station rule works essentially perfectly, so the tool does not cry wolf everywhere. The errors concentrate exactly where physical geography says they should — marine-layer boundaries and terrain — and they run in both directions (undersizing risk in Topanga, oversizing risk on the San Diego coast). Nearly every material error disappears when the thermally-most-similar station is chosen instead.
+The control matters as much as the headline: in Fresno's thermally uniform valley the nearest-station rule works essentially perfectly, so the tool does not cry wolf everywhere. The errors concentrate exactly where physical geography says they should — marine-layer boundaries and terrain — and they run in both directions: in San Diego 14.9% of cells get a station reading too cool (undersizing risk) and 11.4% one reading too hot (oversizing). Nearly every material error disappears when the block is matched to a better station instead.
+
+**Two station sets, deliberately.** "Nearest" is drawn from every real station with modelled data; "best match" only from the 42 stations verified against NOAA, because the tool should not recommend one it never checked. The choice matters and is reported rather than buried: restricting *nearest* to verified stations only would raise Los Angeles from 11.8% to 20.1%, because dropping candidates pushes the nearest station farther away. The lower, wider-set number is the one published. San Diego is 25.8% either way.
+
+An earlier version of this table sampled 0.04° chunks every 0.1° — about 16% of each metro's area — and reported 24.9% / 9.5% / 0%. Contiguous coverage supersedes it; the sparse grid happened to under-sample the complex terrain where the errors live.
 
 **External validation** ([data/atlas/validation.json](data/atlas/validation.json)): the modelled July-2024 peak at 42 station blocks was checked against NOAA's measured hourly maximum at those same stations. Median absolute difference 4.2°F, correlation r = 0.969 — the model preserves the cross-station *ordering* the similarity matching depends on. Its one systematic bias compresses the coastal-inland gradient (coastal stations read ~4°F warm, hot-interior stations ~3°F cool), which means the misassignment rates above are **understated**, not inflated.
 

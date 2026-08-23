@@ -194,3 +194,28 @@ a { color: var(--coral-ink); }
 .mono { font-family: var(--mono); font-size: var(--fs-xs); }
 
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+
+/* ── Misassignment atlas ────────────────────────────── */
+.atlas-legend { display: flex; flex-wrap: wrap; gap: var(--sp-2) var(--sp-3);
+                margin-top: var(--sp-4); font-size: var(--fs-xs); color: var(--on-dark-soft); }
+.atlas-legend span { display: inline-flex; align-items: center; gap: 8px; }
+.atlas-legend strong { color: var(--on-dark); font-weight: 600; }
+.atlas-legend i { width: 14px; height: 14px; border-radius: 3px; flex: none; }
+.atlas-legend i.dot { width: 10px; height: 10px; border-radius: 50%;
+                      background: var(--ink-deep); box-shadow: 0 0 0 2px #fff; }
+
+.atlas-grid { display: grid; gap: var(--sp-4); margin-top: var(--sp-3);
+              grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.atlas-panel svg { width: 100%; height: auto; display: block;
+                   background: #0b171d; border-radius: var(--r);
+                   border: 1px solid var(--on-dark-line); }
+.atlas-panel figcaption { margin-top: var(--sp-1); font-size: var(--fs-xs);
+                          color: var(--on-dark-mute); max-width: none; }
+.atlas-panel figcaption strong { color: var(--on-dark); font-weight: 600; }
+.atlas-tag { fill: rgba(255,255,255,0.62); font-size: 15px; font-family: var(--mono); }
+
+.evidence td.cool { color: #6cc4e2; }
+.atlas-legend span { white-space: nowrap; }
+/* Station tags scale with the SVG and go sub-legible on a phone — the map
+   still reads by colour, and every marker keeps its tooltip. */
+@media (max-width: 720px) { .atlas-tag { display: none; } }

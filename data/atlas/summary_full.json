@@ -1,0 +1,70 @@
+{
+  "window": "July 2024",
+  "method": "Contiguous 100 m FortyGuard reads pooled to ~1 km cells (median tile). Nearest station is drawn from every real station with modelled data within 40 miles — the conservative set, since dropping candidates only pushes the nearest one farther away. Best match is drawn only from stations verified against NOAA, the same gate lib/stations.ts applies in the app.",
+  "materialityF": 5,
+  "metros": {
+    "fresno": {
+      "metro": "Fresno",
+      "cells": 861,
+      "stations": 5,
+      "pctNearestOffBy5F": 0,
+      "pctFixableBy5F": 0,
+      "pctTooHot": 0,
+      "pctTooCool": 0,
+      "medianAbsErrF": 0.2,
+      "p90AbsErrF": 0.9,
+      "worst": {
+        "lat": 36.65,
+        "lon": -119.86,
+        "maxF": 105.9,
+        "nearest": "KFAT",
+        "nearestKm": 19.1,
+        "errNearestF": 2.2,
+        "similar": "KVIS",
+        "errSimilarF": -0.2
+      }
+    },
+    "la": {
+      "metro": "Los Angeles",
+      "cells": 2677,
+      "stations": 27,
+      "pctNearestOffBy5F": 11.8,
+      "pctFixableBy5F": 11.6,
+      "pctTooHot": 5.1,
+      "pctTooCool": 6.7,
+      "medianAbsErrF": 1.8,
+      "p90AbsErrF": 5.8,
+      "worst": {
+        "lat": 34.09,
+        "lon": -118.63,
+        "maxF": 101.2,
+        "nearest": "KSMO",
+        "nearestKm": 18.5,
+        "errNearestF": -20,
+        "similar": "KWHP",
+        "errSimilarF": 0.3
+      }
+    },
+    "sd": {
+      "metro": "San Diego",
+      "cells": 1761,
+      "stations": 13,
+      "pctNearestOffBy5F": 26.2,
+      "pctFixableBy5F": 25.3,
+      "pctTooHot": 11.4,
+      "pctTooCool": 14.9,
+      "medianAbsErrF": 3.1,
+      "p90AbsErrF": 7.7,
+      "worst": {
+        "lat": 32.83,
+        "lon": -117.27,
+        "maxF": 74.1,
+        "nearest": "KMYF",
+        "nearestKm": 12.5,
+        "errNearestF": 17.8,
+        "similar": "KNRS",
+        "errSimilarF": 5.4
+      }
+    }
+  }
+}

@@ -21,10 +21,11 @@ Not a compliance claim. Not a Manual J replacement. A representativeness check o
 Built in `tools/atlas/` (run → build → validate), results in `data/atlas/`, method and numbers in README.
 
 - 1,262 one-km cells across LA / San Diego / Fresno (control), 45 candidate NOAA stations, July 2024, 194 FortyGuard reads, zero failures.
-- Headline: **San Diego 24.9%** of cells ≥5°F off with the nearest station (23.3% fixable by a better station), **LA 9.5%** (all fixable), **Fresno 0%** — the control that keeps the claim honest.
-- Worst cases: Topanga −20.1°F (assigned Santa Monica → undersizing), SD coast +16.1°F (assigned Miramar → oversizing).
+- Headline (recomputed 23 Aug on contiguous coverage, `build-full.mjs`): **San Diego 26.2%** of cells ≥5°F off with the nearest station, **LA 11.8%**, **Fresno 0%** — the control that keeps the claim honest. Supersedes the sampled-grid 24.9/9.5/0.
+- Worst cases: Topanga −20.0°F (assigned Santa Monica → undersizing), La Jolla coast +17.8°F (assigned Montgomery Field → oversizing).
+- ⚠️ **Station-set sensitivity, published openly.** Restricting *nearest* to NOAA-verified stations only would raise LA to 20.1%; dropping candidates pushes the nearest station farther away and inflates the error. The wider, lower number is the one published. SD is 25.8% either way.
 - External validation vs NOAA at 42 stations: median |Δ| 4.2°F, r = 0.969; the model compresses the coast-inland gradient, so atlas rates are conservative.
-- **Checkpoint ruling: full claim stands.** 24.9% ≫ the 5% narrowing trigger. No pitch narrowing needed.
+- **Checkpoint ruling: full claim stands.** 26.2% ≫ the 5% narrowing trigger. No pitch narrowing needed.
 
 ## Days 4–5 · Close the loop to equipment — ✅ DONE 21 Aug
 
@@ -32,7 +33,7 @@ Built in `tools/atlas/` (run → build → validate), results in `data/atlas/`, 
 
 ## Day 6 · Output a decision, not a map — ✅ DONE 21 Aug (peak-match version)
 
-Shipped in the lookup UI: "Use KNRS, not KNKX" — nearest verified station vs best thermal match within 40 miles, both with their modelled July peaks and errors. Candidates are restricted to the 42 NOAA-validated stations (`lib/stations.ts`). In-app matching is 1-D on modelled July peak (works from live or cached reads alike); the atlas's richer 2-feature matching stays the atlas methodology. Optional polish later: surface the atlas map visually.
+Shipped in the lookup UI: "Use KNRS, not KNKX" — nearest verified station vs best thermal match within 40 miles, both with their modelled July peaks and errors. Candidates are restricted to the 42 NOAA-validated stations (`lib/stations.ts`). In-app matching is 1-D on modelled July peak (works from live or cached reads alike); the atlas's richer 2-feature matching stays the atlas methodology. The atlas map is now surfaced on the page — see Day 7.
 
 ## Day 7 · Freeze — in progress 23 Aug
 
@@ -43,6 +44,7 @@ Shipped in the lookup UI: "Use KNRS, not KNKX" — nearest verified station vs b
 - [x] Live path corrected to match the cache: block peak is the **median** tile, not the max. Station blocks in `data/atlas` are medians, so the old live max compared a block's hot spot against a station's typical tile.
 - [x] Out-of-coverage addresses say so plainly and point at the three metros.
 - [x] Verified with `FORTYGUARD_API_KEY=` empty: La Jolla, Borrego, Topanga, Fresno, downtown LA and the Getty all answer from cache; a non-California address returns a clean message.
+- [x] Atlas published on the site: `app/atlas-map.tsx` replaces the old county-ceiling evidence chapter. Two SVG panels (San Diego speckled, Fresno entirely clean) plus the three-metro table and the NOAA validation line. Diverging palette #2E93B5 / #D9762A validated against the dark surface with the dataviz validator — CVD ΔE 18.2 protan, 25.6 normal, both inside the dark lightness band. Station tags hidden under 720px.
 - [ ] Verify in incognito on a phone.
 
 ## Days 8–9 · Submit
@@ -54,7 +56,7 @@ Shipped in the lookup UI: "Use KNRS, not KNKX" — nearest verified station vs b
 
 ## Owner actions
 
-- [ ] Repo decision, 21 Aug: make `github.com/moazzyadah/Design-Delta` **public** instead of adding a collaborator (Settings → Danger Zone → Change visibility). Confirmed clean of secrets before this was suggested. If it stays private instead, add `hackathon@fortyguard.com` as a collaborator before submitting.
-- [ ] Demo video (max 3 min, YouTube/Loom unlisted) — deferred to after 24 Aug (Monday). Script: open on the EPA "geographically closest" quote, then the misassignment atlas table (SD 24.9%), then show the lookup tool live going through La Jolla/Borrego/Topanga, close on the equipment-tons consequence.
+- [x] Repo is **public** with an MIT LICENSE (done 23 Aug). Original decision: make `github.com/moazzyadah/Design-Delta` **public** instead of adding a collaborator (Settings → Danger Zone → Change visibility). Confirmed clean of secrets before this was suggested. If it stays private instead, add `hackathon@fortyguard.com` as a collaborator before submitting.
+- [ ] Demo video (max 3 min, YouTube/Loom unlisted) — deferred to after 24 Aug (Monday). Script: open on the EPA "geographically closest" quote, then the misassignment atlas map + table (SD 26.2%), then show the lookup tool live going through La Jolla/Borrego/Topanga, close on the equipment-tons consequence.
 - [ ] Optional: a free Supabase project (URL + anon key) if saved reports are wanted. Not a blocker.
 - [ ] Submission form: everything except the collaborator question and the video link is drafted (see chat 21 Aug) — title, pitch, tracks, audience, coverage, API usage, AI-tools disclosure, API key (in `.env`), repo link, live demo link (verified working, no-login).

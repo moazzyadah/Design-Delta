@@ -1,8 +1,10 @@
 import LookupForm from "./lookup-form";
-import evidence from "@/data/evidence.json";
+import AtlasMap from "./atlas-map";
+import summary from "@/data/atlas/summary_full.json";
+import validation from "@/data/atlas/validation.json";
 
 export default function Home() {
-  const [station, home] = evidence.sites;
+  const atlas = summary.metros;
 
   return (
     <main>
@@ -30,44 +32,71 @@ export default function Home() {
 
       <section className="chapter" id="evidence">
         <div className="wrap">
-          <h2>One county, one number, two different climates</h2>
+          <h2>How often is the nearest station the wrong one?</h2>
           <p className="lead">
-            San Diego County&apos;s Standard 310 cap is 105°F, drawn from Borrego
-            Desert Park in the Anza-Borrego desert. The same county reaches the
-            coast, sixty miles west across a mountain range. Here is what each place actually did in the
-            same month, modelled at 100-metre resolution.
+            We gridded three California metros into 1 km blocks and compared each
+            block&apos;s modelled July peak against every real weather station within
+            forty miles. The answer depends entirely on terrain — which is the
+            point.
           </p>
 
           <table className="evidence">
             <thead>
               <tr>
-                <th>Location</th>
-                <th>Role</th>
-                <th>Hours above 105°F, July 2024</th>
+                <th>Metro</th>
+                <th>Blocks</th>
+                <th>Nearest station off by 5°F or more</th>
+                <th>Median error</th>
+                <th>Worst block</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Borrego Desert</td>
-                <td>Sets the county number</td>
-                <td className="big hot">{Math.round(station.hours_above_ceiling.mean)} hours</td>
-              </tr>
-              <tr>
-                <td>La Jolla, on the coast</td>
-                <td>Sized by that same number</td>
-                <td className="big">{home.hours_above_ceiling.mean} hours</td>
-              </tr>
+              {[atlas.sd, atlas.la, atlas.fresno].map((m) => (
+                <tr key={m.metro}>
+                  <td>{m.metro}</td>
+                  <td>{m.cells.toLocaleString()}</td>
+                  <td
+                    className={`big ${
+                      m.pctNearestOffBy5F >= 5 ? "hot" : ""
+                    }`}
+                  >
+                    {m.pctNearestOffBy5F}%
+                  </td>
+                  <td>{m.medianAbsErrF}°F</td>
+                  <td>
+                    {m.worst.errNearestF > 0 ? "+" : ""}
+                    {m.worst.errNearestF}°F · {m.worst.nearest}
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
 
           <figcaption>
-            Both rows are live FortyGuard exceedance reads over 744 hours —
-            activity <span className="mono">{station.activity_id.slice(0, 8)}</span> across{" "}
-            {station.tiles} tiles and{" "}
-            <span className="mono">{home.activity_id.slice(0, 8)}</span> across{" "}
-            {home.tiles} tiles. The cap is deliberately permissive so a legitimate Borrego
-            design is not rejected — which is exactly why it cannot describe the
-            coast.
+            Fresno is the control, and it is doing real work: in a flat valley the
+            nearest-station rule is almost exactly right, so a tool that flagged
+            problems there would be flagging noise. The errors concentrate where
+            physical geography says they should, and they run in{" "}
+            <strong>both directions</strong> — {atlas.sd.pctTooCool}% of San Diego
+            blocks are assigned a station that reads too cool, {atlas.sd.pctTooHot}%
+            one that reads too hot. Almost every material error disappears when the
+            block is matched to a better station instead:{" "}
+            {atlas.sd.pctFixableBy5F} of {atlas.sd.pctNearestOffBy5F}% in San Diego.
+          </figcaption>
+
+          <AtlasMap />
+
+          <figcaption style={{ marginTop: 24 }}>
+            <strong>Is the model itself trustworthy?</strong> We checked its
+            modelled July peak against NOAA&apos;s measured maximum at{" "}
+            {validation.stationsCompared} stations: median difference{" "}
+            {validation.medianAbsDeltaF}°F, correlation r ={" "}
+            {validation.pearsonR}. It preserves the station-to-station ordering the
+            matching depends on. Its one systematic bias compresses the
+            coastal-inland gradient — coastal stations read about{" "}
+            {validation.coastalMeanBiasF}°F warm, hot interior stations{" "}
+            {validation.interiorMeanBiasF}°F cool — which means the rates above are
+            understated rather than inflated.
           </figcaption>
         </div>
       </section>
