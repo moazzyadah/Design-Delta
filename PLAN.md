@@ -47,9 +47,28 @@ Shipped in the lookup UI: "Use KNRS, not KNKX" — nearest verified station vs b
 - [x] Atlas published on the site: `app/atlas-map.tsx` replaces the old county-ceiling evidence chapter. Two SVG panels (San Diego speckled, Fresno entirely clean) plus the three-metro table and the NOAA validation line. Diverging palette #2E93B5 / #D9762A validated against the dark surface with the dataviz validator — CVD ΔE 18.2 protan, 25.6 normal, both inside the dark lightness band. Station tags hidden under 720px.
 - [ ] Verify in incognito on a phone.
 
+## Day 8 · Independent audit — ✅ DONE 24 Aug
+
+Six independent reviewers (statistician, engineer, FortyGuard platform, building-science practitioner, hostile judge, product strategist), a planner, and a skeptic whose only job was to attack the plan. 36 findings. Fixed in commit e9e3f91:
+
+- **Out-of-state addresses were answered rather than rejected.** `1 Front St, Brooklyn NY` returned `Kings County, CA, ceiling 102°F, station Corcoran California` and the note called it exact. County names repeat across states — Kings, Orange, Lake, Nevada, Sierra, Humboldt, Butte, Trinity. Guard on state first. This was the one defect that survived key expiry and asserted a false number as authoritative.
+- **The app and the atlas computed "nearest station" from different pools**, so downtown LA showed a material verdict from a station 16 km away while KCQT sat 5 km away and 0.9°F off. 245 cells carried a false material flag. Same pool now; recommendations stay verified-only.
+- **The recommendation had no distance term** and drifted to the 40-mile edge. Near-equal matches now break on distance; a match that cannot clear the 5°F bar is reported as no match instead of being sold as a fix.
+- **Equipment returns null below the 75°F setpoint** — La Jolla's peak is 74.1°F, so its tonnage was entirely our assumed solar gain, not the station gap.
+- **Demo addresses replaced.** Borrego returned null for both flagship panels; La Jolla sat below setpoint. Now Topanga (undersizing), Del Mar (oversizing), downtown LA (rule works).
+- **Sensitivity curve published.** SD 51.5/39.5/26.2/18.5/9.1/4.8% at 3/4/5/6/8/10°F; Fresno holds at **0% at every bar**.
+- **420,135 HERS-rated homes sourced** to RESNET's 2026 trends report; "governs" dropped from copy about a voluntary standard.
+
+### Deliberately NOT done, with reasons
+
+- **Equipment-panel rewrite (planner ranked #5, 4 h).** The skeptic implemented the spec and it returned null on 53.3% of material cells — worse than the 34.1% self-contradiction it was meant to fix, and it would have broken the panel the video opens on. Left alone except the setpoint guard.
+- **Out-of-sample holdout refetch (5 h).** Real circularity in the "fixable" column, but it damages one column, not the headline, and it is 5 h of API work against a hard 30 Aug expiry. Relabelled as in-sample instead.
+- **New FortyGuard endpoints** (env_params, satellite/street-view segmentation, persistence, time_of_measure). All would deepen Technical Execution, all land in video week. A half-wired endpoint scores worse than one honest sentence explaining why only /v1/heatmap was used.
+- **ACS population weighting, 1%-design-temp calibration, raw-archive commit.** Each replaces every published number days before recording.
+
 ## Days 8–9 · Submit
 
-- 3-minute video, opening on the EPA "geographically closest" quote, then the Pasadena table.
+- 3-minute video. **Record it twice**: a first cut against today's working build immediately, submit the form with it, then re-record only if later work lands. The form accepts resubmissions and the latest counts, so this makes "no video at the deadline" impossible. Open on the EPA "geographically closest" quote, then the San Diego atlas map, then Topanga in the live tool. Do NOT open on La Jolla — its block peak is below the indoor setpoint.
 - Add **hackathon@fortyguard.com** as a repository collaborator.
 - Submit at https://forms.gle/jLgBzVTG1NhJ3gNe6 — primary track **Future Buildings & Energy**. Submit early; resubmit if anything improves.
 - Confirm the deployed demo answers with the key removed.
