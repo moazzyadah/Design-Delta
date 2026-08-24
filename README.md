@@ -51,7 +51,38 @@ An earlier version of this table sampled 0.04° chunks every 0.1° — about 16%
 
 **External validation** ([data/atlas/validation.json](data/atlas/validation.json)): the modelled July-2024 peak at 42 station blocks was checked against NOAA's measured hourly maximum at those same stations. Median absolute difference 4.2°F, correlation r = 0.969 — the model preserves the cross-station *ordering* the similarity matching depends on. Its one systematic bias compresses the coastal-inland gradient (coastal stations read ~4°F warm, hot-interior stations ~3°F cool), which means the misassignment rates above are **understated**, not inflated.
 
-Reproduce with `node --env-file=.env tools/atlas/run.mjs all` then `node tools/atlas/build.mjs` and `node tools/atlas/validate.mjs`.
+**Does the answer depend on where the 5°F bar sits?** It is a practitioner rule of thumb, not a figure any standard publishes, and one constant produces every percentage above — so here is the whole curve.
+
+| Bar | San Diego | Los Angeles | Fresno |
+|---|---|---|---|
+| 3°F | 51.5% | 28.8% | 0% |
+| 4°F | 39.5% | 19.1% | 0% |
+| **5°F** (used) | **26.2%** | **11.8%** | **0%** |
+| 6°F | 18.5% | 9.5% | 0% |
+| 8°F | 9.1% | 4.7% | 0% |
+| 10°F | 4.8% | 1.7% | 0% |
+
+San Diego stays substantial down to a strict 10°F bar, and the Fresno control stays at exactly zero at every one of them.
+
+### Reproducing the atlas
+
+Needs a FortyGuard key in `.env` and about 350 API calls. Stages cache to `.tmp/atlas/raw/`, so a re-run resumes rather than refetching.
+
+```bash
+mkdir -p .tmp
+curl -o .tmp/isd.csv https://www.ncei.noaa.gov/pub/data/noaa/isd-history.csv   # NOAA station list, not vendored
+
+node --env-file=.env tools/atlas/run.mjs all      # station blocks + sampled chunks
+node tools/atlas/build.mjs                        # station peaks -> data/atlas/{metro}.json
+node tools/atlas/validate.mjs                     # NOAA check -> validation.json
+
+node --env-file=.env tools/atlas/cover.mjs all    # contiguous coverage, 104 reads
+node --env-file=.env tools/atlas/ceiling.mjs      # hours above each county ceiling
+node tools/atlas/build-full.mjs                   # the published numbers -> summary_full.json
+node tools/atlas/freeze.mjs                       # the static cache the demo serves
+```
+
+`build.mjs` still writes the superseded sampled-grid table to `summary.json`; the site and this README read `summary_full.json`, which `build-full.mjs` writes.
 
 ## What this is not
 
