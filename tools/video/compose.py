@@ -34,6 +34,10 @@ TIMELINE = [
     ("clip", "06_topanga", 15.0, "c6_topanga", 4.6),
     ("clip", "07_delmar", 13.0, "c7_delmar", 4.6),
     ("clip", "08_downtown", 11.0, "c8_downtown", 4.6),
+    # Technical Execution is 35% of the score and the surface shows none of it.
+    ("card", "e1_arch", 11.0, None, 0),
+    ("card", "e2_api", 12.0, None, 0),
+    ("card", "e3_pipeline", 12.0, None, 0),
     ("clip", "09_validation", 11.0, "c9_validation", 2.4),
     ("card", "t4_close", 8.0, None, 0),
 ]
