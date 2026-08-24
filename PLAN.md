@@ -66,6 +66,24 @@ Six independent reviewers (statistician, engineer, FortyGuard platform, building
 - **New FortyGuard endpoints** (env_params, satellite/street-view segmentation, persistence, time_of_measure). All would deepen Technical Execution, all land in video week. A half-wired endpoint scores worse than one honest sentence explaining why only /v1/heatmap was used.
 - **ACS population weighting, 1%-design-temp calibration, raw-archive commit.** Each replaces every published number days before recording.
 
+## Video — ✅ first cut built 24 Aug
+
+`tools/video/` — three scripts, fully reproducible: `record.py` drives the live
+site with Playwright and captures one clip per shot; `captions.py` renders every
+caption and title card as a transparent PNG using the site's own typography;
+`compose.py` burns them in and crossfades the joins.
+
+**No voiceover, by design.** The organisers require the product shown working, so
+the base layer is real footage, never slides. Captions carry the argument — they
+read faster than narration for an international panel and remove any accent risk.
+
+Output: `.tmp/video/design-delta-demo.mp4`, 2:02, 1600×900, 8 MB. Under the
+3-minute cap with room to extend a hold if needed.
+
+Deliberate choices: La Jolla never appears (its block peak is below the model's
+indoor setpoint); the county-cap verdict was demoted out of the result cards
+before recording, so the first thing on screen is the station question.
+
 ## Days 8–9 · Submit
 
 - 3-minute video. **Record it twice**: a first cut against today's working build immediately, submit the form with it, then re-record only if later work lands. The form accepts resubmissions and the latest counts, so this makes "no video at the deadline" impossible. Open on the EPA "geographically closest" quote, then the San Diego atlas map, then Topanga in the live tool. Do NOT open on La Jolla — its block peak is below the indoor setpoint.

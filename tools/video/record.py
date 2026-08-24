@@ -43,6 +43,21 @@ def glide(pg, selector, extra=0):
     pg.wait_for_timeout(1400)
 
 
+def centre(pg, selector, index=0):
+    """Put one specific element in the middle of frame — the caption names it,
+    so it has to be the thing on screen."""
+    pg.evaluate(
+        """([sel, i]) => {
+            const el = document.querySelectorAll(sel)[i];
+            const r = el.getBoundingClientRect();
+            const y = r.top + window.scrollY - (window.innerHeight - r.height) / 2;
+            window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+        }""",
+        [selector, index],
+    )
+    pg.wait_for_timeout(1500)
+
+
 @shot("01_hero", 11)
 def _(pg):
     settle(pg, 1600)
@@ -55,12 +70,12 @@ def _(pg):
 
 @shot("03_map_sd", 12)
 def _(pg):
-    glide(pg, ".atlas-grid")
+    centre(pg, ".atlas-panel", 0)
 
 
 @shot("04_map_fresno", 9)
 def _(pg):
-    glide(pg, ".atlas-grid", extra=120)
+    centre(pg, ".atlas-panel", 1)
 
 
 @shot("05_sensitivity", 9)
@@ -94,7 +109,8 @@ def _(pg):
 
 @shot("09_validation", 11)
 def _(pg):
-    glide(pg, ".atlas-grid", extra=760)
+    # The validation paragraph is the last figcaption in the dark chapter.
+    centre(pg, "#evidence figcaption", 1)
 
 
 def main():
