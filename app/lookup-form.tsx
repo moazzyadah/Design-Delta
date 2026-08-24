@@ -79,51 +79,19 @@ export default function LookupForm() {
 
       {result && (
         <>
-          <div className="numbers">
-            <div className="num">
-              <div className="k">{result.county} County allows up to</div>
-              <div className="v">{result.ceilingF}°F</div>
-              <div className="s">
-                Set by <strong>{result.station}</strong>
-              </div>
-            </div>
-
-            <div className="num">
-              <div className="k">Your block&apos;s modelled peak</div>
-              <div className="v">
-                {result.blockPeakF !== null ? `${result.blockPeakF}°F` : "—"}
-              </div>
-              <div className="s">Hottest modelled hour, July 2024, 100 m tiles</div>
-            </div>
-
-            <div className="num accent">
-              <div className="k">Hours your block spent above the limit</div>
-              <div className="v">
-                {result.hoursAboveCeiling !== null ? result.hoursAboveCeiling : "—"}
-              </div>
-              <div className="s">Out of 744 hours in the month</div>
-            </div>
-          </div>
-
           {result.note && <p className="err">{result.note}</p>}
-
-          {result.deltaF !== null && (
-            <div className={`verdict ${result.material ? "material" : "minor"}`}>
-              <b>
-                {result.deltaF > 0
-                  ? `The limit sits ${result.deltaF}°F above your block.`
-                  : `Your block runs ${Math.abs(result.deltaF)}°F above the limit.`}
-              </b>
-              {result.material
-                ? "Practitioner guidance treats a 5°F discrepancy as worth correcting. This one clears that bar — worth raising with whoever selects the design station."
-                : "Inside the 5°F band practitioners treat as immaterial. The county number is a reasonable stand-in for this block."}
-            </div>
-          )}
 
           {result.assignment && result.blockPeakF !== null && (
             <>
-              <div className="numbers" style={{ marginTop: 20 }}>
+              <div className="numbers">
                 <div className="num">
+                  <div className="k">Your block&apos;s modelled peak</div>
+                  <div className="v">{result.blockPeakF}°F</div>
+                  <div className="s">
+                    Hottest modelled hour, July 2024, 100 m tiles
+                  </div>
+                </div>
+                <div className="num accent">
                   <div className="k">
                     Nearest station — {result.assignment.nearest.km} km away
                   </div>
@@ -202,6 +170,18 @@ export default function LookupForm() {
               )}
             </>
           )}
+
+          {/* The Standard 310 county cap is context, not a verdict. It is a
+              multi-decade 1% design temperature and cannot be subtracted from a
+              single modelled July peak, so it no longer renders as a delta. */}
+          <p className="context-line">
+            For context: {result.county} County&apos;s Standard 310 grading cap is{" "}
+            <strong>{result.ceilingF}°F</strong>, set by {result.station}
+            {result.hoursAboveCeiling !== null && (
+              <> — this block spent {result.hoursAboveCeiling} of July&apos;s 744 hours above it</>
+            )}
+            .
+          </p>
 
           <p className="examples mono" style={{ marginTop: 16 }}>
             {result.address} · {result.lat.toFixed(4)}, {result.lon.toFixed(4)} ·

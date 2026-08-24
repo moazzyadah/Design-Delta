@@ -225,3 +225,7 @@ a { color: var(--coral-ink); }
 .evidence.sensitivity { margin-top: var(--sp-2); max-width: 640px; }
 .evidence.sensitivity td { padding: 9px 0; font-variant-numeric: tabular-nums; }
 .evidence.sensitivity td.chosen { color: var(--on-dark); font-weight: 600; }
+.context-line { margin-top: var(--sp-3); padding-top: var(--sp-2);
+                border-top: 1px solid var(--line); font-size: var(--fs-sm);
+                color: var(--muted); }
+.context-line strong { color: var(--text); font-weight: 600; }
