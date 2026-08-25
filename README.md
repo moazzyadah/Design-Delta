@@ -151,9 +151,15 @@ curl "localhost:3000/api/lookup?address=120+S+Topanga+Canyon+Blvd,+Topanga,+CA+9
 
 ## Status
 
-Working: address lookup, county reference for California, live FortyGuard reads with cache fallback, the exceedance comparison, the three-metro misassignment atlas with NOAA validation (`data/atlas/`), the station recommendation ("Use KNRS, not KNKX" — nearest verified station vs best thermal match within 40 miles), and the equipment-impact panel (an openly-stated 2,000 ft² archetype, ACCA-style sensible load at both temperatures, half-ton equipment steps).
+Working, and all of it live at [design-delta.wsool.ai](https://design-delta.wsool.ai):
 
-Next: freeze and precache everything so the demo answers across all three metros after API access ends. See `PLAN.md`.
+- **The lookup.** Type an address; get the block's modelled peak, the station EPA's guidance sends you to, and the station that actually matches. Topanga returns *"Use KLGB, not KSMO"* — the nearest station is 16.3 km away and reads 14.7°F cooler than the block.
+- **The recommendation, with two deliberately different station pools.** "Nearest" is drawn from every station with modelled data, because dropping candidates only pushes the nearest one farther away and inflates the error we report. "Best match" is drawn only from the 42 stations verified against NOAA, because the tool should not send anyone to a station it never checked. Near-equal matches break on distance, and a match that cannot clear the 5°F bar is reported as *no* match rather than sold as a fix.
+- **The equipment panel.** An openly-stated 2,000 ft² archetype, ACCA-style sensible load at both temperatures, half-ton equipment steps. It returns nothing below the 75°F indoor setpoint, where the tonnage would describe our assumed solar gain instead of the temperature gap.
+- **The atlas**, with NOAA validation and the full 5°F sensitivity curve (`data/atlas/`).
+- **The freeze.** 5,300 precomputed cells; the deployed demo answers with no API key at all.
+
+In progress: extending the atlas from July to the July–September peak season, as a robustness check rather than a replacement — see `PLAN.md`.
 
 ## Credits
 
