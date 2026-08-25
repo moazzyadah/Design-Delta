@@ -1,0 +1,142 @@
+{
+  "window": "July–September 2024",
+  "method": "Per tile, the maximum across the three months; per ~1 km cell, the median of those tile maxima. Identical to the July build except for the window, so any difference is the window and not the method.",
+  "materialityF": 5,
+  "metros": {
+    "fresno": {
+      "metro": "Fresno",
+      "monthsPerStation": 3,
+      "cells": 861,
+      "stations": 5,
+      "pctNearestOffBy5F": 0,
+      "medianAbsErrF": 0.2,
+      "p90AbsErrF": 0.9,
+      "sensitivity": [
+        {
+          "barF": 3,
+          "pct": 0
+        },
+        {
+          "barF": 4,
+          "pct": 0
+        },
+        {
+          "barF": 5,
+          "pct": 0
+        },
+        {
+          "barF": 6,
+          "pct": 0
+        },
+        {
+          "barF": 8,
+          "pct": 0
+        },
+        {
+          "barF": 10,
+          "pct": 0
+        }
+      ],
+      "worst": {
+        "lat": 36.65,
+        "lon": -119.86,
+        "maxF": 106.1,
+        "nearest": "KFAT",
+        "nearestKm": 19.1,
+        "errNearestF": 2,
+        "similar": "KVIS",
+        "errSimilarF": -0.4
+      }
+    },
+    "la": {
+      "metro": "Los Angeles",
+      "monthsPerStation": 3,
+      "cells": 2677,
+      "stations": 27,
+      "pctNearestOffBy5F": 7.8,
+      "medianAbsErrF": 1.3,
+      "p90AbsErrF": 4.4,
+      "sensitivity": [
+        {
+          "barF": 3,
+          "pct": 22.3
+        },
+        {
+          "barF": 4,
+          "pct": 14.7
+        },
+        {
+          "barF": 5,
+          "pct": 7.8
+        },
+        {
+          "barF": 6,
+          "pct": 6.2
+        },
+        {
+          "barF": 8,
+          "pct": 1.5
+        },
+        {
+          "barF": 10,
+          "pct": 0.3
+        }
+      ],
+      "worst": {
+        "lat": 33.98,
+        "lon": -118.47,
+        "maxF": 75.1,
+        "nearest": "KSMO",
+        "nearestKm": 5,
+        "errNearestF": 25.9,
+        "similar": "KNTD",
+        "errSimilarF": 24.7
+      }
+    },
+    "sd": {
+      "metro": "San Diego",
+      "monthsPerStation": 3,
+      "cells": 1761,
+      "stations": 13,
+      "pctNearestOffBy5F": 12.7,
+      "medianAbsErrF": 1.3,
+      "p90AbsErrF": 6.1,
+      "sensitivity": [
+        {
+          "barF": 3,
+          "pct": 20.4
+        },
+        {
+          "barF": 4,
+          "pct": 14.9
+        },
+        {
+          "barF": 5,
+          "pct": 12.7
+        },
+        {
+          "barF": 6,
+          "pct": 10.2
+        },
+        {
+          "barF": 8,
+          "pct": 5.7
+        },
+        {
+          "barF": 10,
+          "pct": 4.3
+        }
+      ],
+      "worst": {
+        "lat": 32.97,
+        "lon": -117.27,
+        "maxF": 76.9,
+        "nearest": "KNKX",
+        "nearestKm": 17.2,
+        "errNearestF": 25.8,
+        "similar": "KNRS",
+        "errSimilarF": 15
+      }
+    }
+  }
+}
