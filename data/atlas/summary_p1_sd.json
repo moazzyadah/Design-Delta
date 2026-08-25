@@ -1,0 +1,108 @@
+{
+  "metro": "San Diego",
+  "quantity": "1% cooling design temperature (dry-bulb exceeded ~88 h/yr)",
+  "window": "July\u2013September 2024 exceedance ladder",
+  "caveat": "Hours above the threshold outside July\u2013September are not counted, so each 1% value is a mild underestimate. The same underestimate applies to a block and to its station, so the difference between them is unaffected.",
+  "targetHours": 88,
+  "materialityF": 5,
+  "cells": 1238,
+  "stations": 11,
+  "pctNearestOffBy5F": 10.1,
+  "medianAbsErrF": 2.4,
+  "sensitivity": [
+    {
+      "barF": 3,
+      "pct": 38.7
+    },
+    {
+      "barF": 4,
+      "pct": 22.3
+    },
+    {
+      "barF": 5,
+      "pct": 10.1
+    },
+    {
+      "barF": 6,
+      "pct": 3.3
+    },
+    {
+      "barF": 8,
+      "pct": 0.2
+    },
+    {
+      "barF": 10,
+      "pct": 0
+    }
+  ],
+  "worst": {
+    "lat": 33.05,
+    "lon": -117.11,
+    "p1F": 92.4,
+    "nearest": "KCRQ",
+    "nearestKm": 17.9,
+    "errNearestF": -8.4,
+    "similar": "99999953151",
+    "errSimilarF": 2.7
+  },
+  "stationP1": [
+    {
+      "icao": "KSAN",
+      "p1F": 84.3,
+      "seasonMaxF": 97.9
+    },
+    {
+      "icao": "KMYF",
+      "p1F": 89.6,
+      "seasonMaxF": 103.5
+    },
+    {
+      "icao": "KSDM",
+      "p1F": 87.9,
+      "seasonMaxF": 102.5
+    },
+    {
+      "icao": "KNZY",
+      "p1F": 82.3,
+      "seasonMaxF": 97
+    },
+    {
+      "icao": "KSEE",
+      "p1F": 97.2,
+      "seasonMaxF": 107
+    },
+    {
+      "icao": "KNRS",
+      "p1F": 78.1,
+      "seasonMaxF": 91.9
+    },
+    {
+      "icao": "KCRQ",
+      "p1F": 84,
+      "seasonMaxF": 96.1
+    },
+    {
+      "icao": "KNKX",
+      "p1F": 89.4,
+      "seasonMaxF": 102.7
+    },
+    {
+      "icao": "KOKB",
+      "p1F": 84.6,
+      "seasonMaxF": 98.4
+    },
+    {
+      "icao": "KRNM",
+      "p1F": 97.6,
+      "seasonMaxF": 105.9
+    },
+    {
+      "icao": "99999953151",
+      "p1F": 95.1,
+      "seasonMaxF": 107.2
+    }
+  ],
+  "modelBiasCheck": "At ladder thresholds set from the season maximum, NOAA measured zero hours in July at coastal stations where the model reports 7-16. That is the documented coastal warm bias (+4.3F mean) expressed as hours. The atlas compares a modelled block against a modelled station, so a shared bias cancels; the residual is the model compressing the coast-inland gradient, which makes 10.1% an underestimate rather than an inflated figure.",
+  "coverage": "1,238 of 1,761 San Diego cells resolved. The rest had their 88-hour crossing outside the three-rung ladder and are excluded rather than extrapolated.",
+  "scope": "San Diego only. The API key ran out of credits before Los Angeles and Fresno ladders could be fetched, so those metros remain on the July-maximum basis."
+}
